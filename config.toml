@@ -1,4 +1,4 @@
-baseurl = "https://klimo.o/"
+baseurl = "/"
 title = "Klimo.io"
 theme = "ghostwriter"
 languageCode = "en-us"
