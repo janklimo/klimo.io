@@ -17,7 +17,7 @@ disqusShortname = "XXX"
     useSessionStorage = false
 
 [Author]
-    name = "My Name"
+    name = "A blog by Jan Klimo"
     profile = "https://klimo.io"
 
 [Taxonomies]
@@ -27,16 +27,13 @@ disqusShortname = "XXX"
     intro = true
     headline = "My headline"
     description = "My description"
+    title = "Klimo.io"
     github = "https://github.com/janklimo"
     linkedin = "https://www.linkedin.com/in/janklimo/"
     twitter = "https://twitter.com/janklimo"
     stackoverflow = "https://stackoverflow.com/users/3678689/jan-klimo"
-    email = "jan.klimo@gmail.com"
     opengraph = true
     shareTwitter = true
-    shareFacebook = true
-    shareGooglePlus = true
-    shareLinkedIn = false
     dateFormat = "Mon, Jan 2, 2006"
     highlightJsUrl = ""
     highlightJsLocalUrl = ""
@@ -57,15 +54,5 @@ disqusShortname = "XXX"
 
 [[menu.main]]
     name = "Projects"
-    url = "/project/"
+    url = "/projects/"
     weight = 2
-
-[[menu.main]]
-    name = "Contact"
-    url = "/page/contact/"
-    weight = 3
-
-[[menu.main]]
-    name = "About"
-    url = "/page/about/"
-    weight = 4
