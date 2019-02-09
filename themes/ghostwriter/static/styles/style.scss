@@ -179,7 +179,7 @@ table {
     height: auto;
         min-height: 100%;
     /* This must be the same as the height of the footer */
-    margin-bottom: -265px;
+    margin-bottom: -210px;
 
     &:after {
         content: "";
@@ -544,7 +544,7 @@ table {
 /* ============================================================ */
 
 .footer {
-    background: $secondary;
+    background: $background;
     color: #D3D3D3;
     height: 265px;
     margin-top: 95px;
@@ -555,6 +555,11 @@ table {
     .site-title a:hover,
     .button-square:hover {
         background: #121212;
+    }
+
+    .social-icons {
+        width: 220px;
+        margin: 10px auto;
     }
 }
 

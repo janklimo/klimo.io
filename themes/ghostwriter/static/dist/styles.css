@@ -98,7 +98,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .hidden { text-indent: -9999px; visibility: hidden; display: none; }
 .clearfix:after { content: ""; display: table; clear: both; }
 .container { margin: 0 auto; position: relative; width: 100%; max-width: 889px; }
-#wrapper { height: auto; min-height: 100%; margin-bottom: -265px; }
+#wrapper { height: auto; min-height: 100%; margin-bottom: -210px; }
 #wrapper:after { content: ""; display: block; height: 265px; }
 .button { background: #303030; border: none; border-radius: 3px; color: #fefefe; font-size: 14px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
 .button:hover { background: #38c2f0; }
@@ -165,9 +165,10 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .author-meta a { color: #aeadad; }
 .author-meta a:hover { color: #38c2f0; }
 .author-bio { margin: 20px auto 0; text-align: center; max-width: 700px; }
-.footer { background: #303030; color: #d3d3d3; height: 265px; margin-top: 95px; overflow: auto; }
+.footer { background: #fefefe; color: #d3d3d3; height: 265px; margin-top: 95px; overflow: auto; }
 .footer .site-title-wrapper { margin: 80px auto 35px; }
 .footer .site-title a:hover, .footer .button-square:hover { background: #121212; }
+.footer .social-icons { width: 220px; margin: 10px auto; }
 .footer-copyright { color: #656565; font-size: 14px; margin: 0; text-align: center; text-transform: uppercase; }
 .footer-copyright a { color: #656565; font-weight: 700; }
 .footer-copyright a:hover { color: #fefefe; }
