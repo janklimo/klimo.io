@@ -245,7 +245,7 @@ table {
     height: 60px;
     margin-top: 15px;
 
-    polygon {
+    path, polygon {
         fill: $secondary;
     }
 }
