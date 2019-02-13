@@ -1,5 +1,4 @@
 const path = require('path');
-const perfectionist = require('perfectionist');
 const discardComments = require('postcss-discard-comments');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -25,7 +24,6 @@ module.exports = {
       canPrint: false
     }),
     new OptimizeCssAssetsPlugin({
-      cssProcessor: perfectionist,
       cssProcessorOptions: {
         format: 'compact'
       },
