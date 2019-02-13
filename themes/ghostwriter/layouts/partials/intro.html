@@ -1,6 +1,11 @@
 {{ if .Site.Params.intro }}
     <header class="post-header">
-        <h1 class="post-title" itemprop="name">{{ .Site.Params.headline }}</h1>
-        <p>{{ .Site.Params.description }}</p>
+        <aside>
+            <div style="display: flex; margin-bottom: 3.5rem;">
+                <img src="{{ .Site.Author.avatar }}" alt="Jan Klimo" class="profile-image">
+                <p style="max-width: 310px;">Personal blog by <a href="https://twitter.com/janklimo">Jan Klimo</a>.
+                     I&nbsp;explain with words and code.</p>
+            </div>
+        </aside>
     </header>
 {{ end }}

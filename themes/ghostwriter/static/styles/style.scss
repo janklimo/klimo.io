@@ -15,7 +15,7 @@ html, body { height: 100%; }
 body {
     background: $background;
     color: #424242;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: "PT Sans", arial, sans-serif;
     font-size: 18px;
 }
 
@@ -32,7 +32,7 @@ h5 { font-size: 16px; margin-bottom: 15px; }
 h6 { font-size: 14px; margin-bottom: 12px; }
 
 p {
-    line-height: 1.8;
+    line-height: 2;
     margin: 0 0 30px;
 }
 
@@ -230,6 +230,18 @@ table {
     overflow: auto;
     text-align: center;
     text-transform: uppercase;
+
+    .site-title a {
+        font-size: 1.5rem;
+    }
+}
+
+.profile-image {
+    margin-right: 0.875rem;
+    margin-bottom: 0px;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
 }
 
 .site-title-wrapper {
@@ -283,7 +295,6 @@ table {
 .post-container { margin: 0 40px; }
 
 .post-header {
-    border-bottom: 6px solid $secondary;
     margin: 0 0 20px;
     padding: 0 0 20px;
     text-align: center;
@@ -294,9 +305,9 @@ table {
 .page-title {
     font-size: 52px;
     font-weight: 700;
-    margin: 15px 0;
-    text-align: center;
+    margin: 3rem 0 1.5rem;
     text-transform: uppercase;
+    text-align: left;
 }
 
 .page-title { margin: 15px 40px; }
@@ -429,7 +440,7 @@ table {
         padding: 20px 5px;
 
         &:hover {
-            background: #FCF5F5;
+            background: #FCFFFF;
             color: $primary;
             padding: 20px 12px;
 
@@ -731,7 +742,7 @@ table {
     .author-name,
     .author-heading {
         font-size: 30px;
-        line-height: 1.2;
+        line-height: 2;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }

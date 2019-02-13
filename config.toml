@@ -19,6 +19,7 @@ disqusShortname = "XXX"
 [Author]
     name = "A blog by Jan Klimo"
     profile = "https://klimo.io"
+    avatar = "images/profile_pic.jpg"
 
 [Taxonomies]
     tag = "tags"
@@ -31,7 +32,6 @@ disqusShortname = "XXX"
     linkedin = "https://www.linkedin.com/in/janklimo/"
     twitter = "https://twitter.com/janklimo"
     stackoverflow = "https://stackoverflow.com/users/3678689/jan-klimo"
-    logo = "images/profile_pic.jpg"
     opengraph = true
     shareTwitter = true
     dateFormat = "Mon, Jan 2, 2006"
