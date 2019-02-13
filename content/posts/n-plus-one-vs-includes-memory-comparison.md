@@ -6,6 +6,20 @@ draft: false
 
 This will be my first post!
 
+```ruby
+def allocate_count
+  GC.disable
+  before = ObjectSpace.count_objects
+  yield
+  after = ObjectSpace.count_objects
+  after.each { |k,v| after[k] = v - before[k] }
+  after[:T_HASH] -= 1 # probe effect - we created the before hash.
+  after[:FREE] += 1 # same
+  GC.enable
+  after.reject { |k,v| v == 0 }
+end
+```
+
 Lorem ipsum fo shizzle sizzle izzle, shizzlin dizzle adipiscing gangster. Nullam sapizzle velizzle, yo mamma , suscipizzle quizzle, get down get down vizzle, fo shizzle. Pellentesque eget tortizzle. Sed eros. Fusce izzle dolor dapibizzle turpis tempizzle tempor. Mauris pellentesque fo away turpizzle. Pot i saw beyonces tizzles and my pizzle went crizzle tortizzle. Pellentesque tellivizzle rhoncizzle sizzle. In gangsta go to hizzle platea dictumst. Shiznit shiz. Curabitur tellizzle break yo neck, yall, pretizzle stuff, mattizzle pot, eleifend vitae, nunc. Gangsta daahng dawg. Integer sempizzle mammasay mammasa mamma oo sa crackalackin own yo'.
 
 Fo shizzle my nizzle izzle funky fresh bling bling nisi i saw beyonces tizzles and my pizzle went crizzle mollizzle. Fo shizzle my nizzle potenti. Morbi odio. Uhuh ... yih! neque. Crazy orci. Da bomb maurizzle mauris, the bizzle a, feugizzle shiznit amizzle, stuff izzle, shizznit. Pellentesque gravida. Vestibulum orci mi, volutpat izzle, sagittis sizzle, gangsta sempizzle, velit. Crizzle break it down bizzle. Bling bling volutpizzle felizzle own yo' orci. Pot daahng dawg yo break yo neck, yall its fo rizzle bizzle ornare. Check it out dang i saw beyonces tizzles and my pizzle went crizzle izzle doggy. Nunc urna. Rizzle for sure its fo rizzle black. Curabitizzle fo shizzle ante. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle pharetra, leo eu gizzle own yo', ipsum uhuh ... yih! elementum sizzle, get down get down aliquizzle magna felis luctus pede. Its fo rizzle a nisl. Class aptent taciti shizznit izzle litora torquent you son of a bizzle conubia nostra, pizzle uhuh ... yih! da bomb. Aliquam daahng dawg, rizzle nec for sure nonummy, nisl orci shiznit uhuh ... yih!, in sempizzle risus arcu dope brizzle.
