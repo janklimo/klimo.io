@@ -3,7 +3,6 @@ title = "Klimo.io"
 theme = "ghostwriter"
 languageCode = "en-us"
 copyright = "Jan Klimo"
-googleAnalytics = "XXX"
 disqusShortname = "XXX"
 
 [Privacy]
