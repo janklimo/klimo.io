@@ -230,7 +230,6 @@ table {
 /* ============================================================ */
 
 .site-header {
-    padding: 40px 0 0;
     overflow: auto;
     text-align: center;
     text-transform: uppercase;
@@ -248,6 +247,19 @@ table {
     path, polygon {
         fill: $secondary;
     }
+}
+.greeting {
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.55rem;
+    color: #de6479;
+}
+
+.tagline {
+    text-transform: none;
+    color: #9a9a9a;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 .profile-image {
@@ -643,7 +655,7 @@ table {
     hr { margin: 35px 0; }
 
     .site-header {
-        padding-top: 30px;
+        padding-top: 10px;
     }
 
     .site-title {
@@ -752,7 +764,7 @@ table {
 
 @media only screen and (max-width: 400px) {
     .site-header {
-        padding-top: 40px;
+        padding-top: 10px;
     }
 
     .post-title,
