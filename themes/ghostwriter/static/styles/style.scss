@@ -240,6 +240,16 @@ table {
     }
 }
 
+.code-brackets {
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+
+    polygon {
+        fill: $secondary;
+    }
+}
+
 .profile-image {
     width: 8rem;
     height: 8rem;
@@ -292,6 +302,11 @@ table {
 /* ============================================================ */
 /* Post */
 /* ============================================================ */
+
+#post-index .post-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
 #latest-post { display: none; }
 
@@ -652,6 +667,7 @@ table {
     .post-header {
         margin-bottom: 20px;
         padding-bottom: 20px;
+
         p {
             word-wrap: break-word;
             overflow-wrap: break-word;

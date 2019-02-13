@@ -1,7 +1,6 @@
 {{ if .Site.Params.intro }}
     <header class="post-header">
-        <aside>
-            <img src="{{ .Site.Author.avatar }}" alt="Jan Klimo" class="profile-image">
-        </aside>
+        <img src="/images/profile_pic.jpg" alt="Jan Klimo" class="profile-image">
+        {{ partial "code_brackets.html"}}
     </header>
 {{ end }}

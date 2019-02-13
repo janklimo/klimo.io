@@ -19,7 +19,6 @@ disqusShortname = "XXX"
 [Author]
     name = "A blog by Jan Klimo"
     profile = "https://klimo.io"
-    avatar = "images/profile_pic.jpg"
 
 [Taxonomies]
     tag = "tags"
