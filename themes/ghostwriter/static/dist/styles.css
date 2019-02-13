@@ -108,7 +108,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .comments { margin-top: 10px; }
 .site-header { overflow: auto; text-align: center; text-transform: uppercase; }
 .site-header .site-title a { font-size: 1.5rem; }
-.code-brackets { width: 60px; height: 60px; margin-top: 15px; }
+.code-brackets { width: 60px; height: 60px; margin: 10px 0 18px; }
 .code-brackets path, .code-brackets polygon { fill: #f75175; }
 .greeting { text-transform: none; font-weight: 600; font-size: 1.55rem; color: #de6479; }
 .tagline { text-transform: none; color: #9a9a9a; font-family: monospace; font-size: 16px; }
