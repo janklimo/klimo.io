@@ -98,35 +98,35 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .hidden { text-indent: -9999px; visibility: hidden; display: none; }
 .clearfix:after { content: ""; display: table; clear: both; }
 .container { margin: 0 auto; position: relative; width: 100%; max-width: 889px; }
-#wrapper { height: auto; min-height: 100%; margin-bottom: -210px; }
+#wrapper { height: auto; min-height: 100%; margin-bottom: -210px; max-width: 50rem; padding: 2.625rem 1.3125rem; margin-left: auto; margin-right: auto; }
 #wrapper:after { content: ""; display: block; height: 265px; }
-.button { background: #303030; border: none; border-radius: 3px; color: #fefefe; font-size: 14px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
+.button { background: #f75175; border: none; border-radius: 3px; color: #fff; font-size: 14px; font-weight: 700; padding: 10px 12px; text-transform: uppercase; }
 .button:hover { background: #38c2f0; }
 .button-square { background: #38c2f0; color: #fff; float: left; font-size: 17px; margin: 0 0 0 10px; padding: 3px 8px 4px; }
-.button-square:hover { background: #303030; }
+.button-square:hover { background: #f75175; }
 .error { text-align: center; }
 .comments { margin-top: 10px; }
 .site-header { padding: 40px 0 0; overflow: auto; text-align: center; text-transform: uppercase; }
 .site-header .site-title a { font-size: 1.5rem; }
-.profile-image { margin-right: .875rem; margin-bottom: 0; width: 8rem; height: 8rem; border-radius: 50%; }
+.profile-image { width: 8rem; height: 8rem; border-radius: 50%; margin: 1rem auto; }
 .site-title-wrapper { display: table; margin: 0 auto; }
 .site-title { float: left; font-size: 14px; font-weight: 600; margin: 0; text-transform: uppercase; }
-.site-title a { float: left; background: #38c2f0; color: #fefefe; padding: 5px 10px 6px; }
-.site-title a:hover { background: #303030; }
+.site-title a { float: left; background: #38c2f0; color: #fff; padding: 5px 10px 6px; }
+.site-title a:hover { background: #f75175; }
 .site-logo { display: block; }
 .site-logo img { margin: 0; }
 .site-nav { list-style: none; margin: 28px 0 10px; padding: 0; }
 .site-nav-item { display: inline-block; font-size: 14px; font-weight: 700; margin: 0 10px; }
-.site-nav-item a:hover { color: #424242; }
+.site-nav-item a:hover { color: #f75175; }
 #latest-post { display: none; }
 .post-container { margin: 0 40px; }
 .post-header { margin: 0 0 20px; padding: 0 0 20px; text-align: center; text-transform: uppercase; }
-.post-title, .page-title { font-size: 52px; font-weight: 700; margin: 3rem 0 1.5rem; text-transform: uppercase; text-align: left; }
+.post-title, .page-title { font-size: 52px; font-weight: 700; margin: 3rem 0 1.5rem; text-align: left; }
 .page-title { margin: 15px 40px; }
 .post-date, .post-reading, .blog-description { color: #aeadad; font-size: 14px; font-weight: 600; line-height: 1; margin: 25px 0 0; }
 .post-date a, .post-reading a, .blog-description a { color: #aeadad; }
 .post-date a:hover, .post-reading a:hover, .blog-description a:hover { color: #38c2f0; }
-.post-line:after { border-bottom: 1px dotted #303030; content: ""; display: block; margin: 40px auto 0; width: 100px; }
+.post-line:after { border-bottom: 1px dotted #f75175; content: ""; display: block; margin: 40px auto 0; width: 100px; }
 .post-content a:hover { border-bottom: 1px dotted #38c2f0; padding: 0 0 2px; }
 .post-content:last-child { margin-bottom: 0; }
 .post-content .footnote { border-spacing: 0; margin-bottom: 0; }
@@ -136,28 +136,28 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .post-tags, .share { color: #aeadad; font-size: 14px; }
 .post-tags span, .share span { font-weight: 600; }
 .post-tags { float: left; margin: 3px 0 0; }
-.post-tags a:hover { color: #303030; }
+.post-tags a:hover { color: #f75175; }
 .share { float: right; }
 .share a { background: #38c2f0; color: #fff; display: inline-block; font-size: 16px; margin-left: 5px; padding: 5px 0 4px; width: 30px; text-align: center; }
-.share a:hover { background: #303030; }
+.share a:hover { background: #f75175; }
 .post-navigation { display: table; margin: 70px auto 100px; }
-.newer-posts, .older-posts { float: left; background: #38c2f0; color: #fefefe; font-size: 14px; font-weight: 600; margin: 0 5px; padding: 5px 10px 6px; text-transform: uppercase; }
-.newer-posts:hover, .older-posts:hover { background: #303030; }
+.newer-posts, .older-posts { float: left; background: #38c2f0; color: #fff; font-size: 14px; font-weight: 600; margin: 0 5px; padding: 5px 10px 6px; text-transform: uppercase; }
+.newer-posts:hover, .older-posts:hover { background: #f75175; }
 .page-number { display: none; }
 .post-list { list-style: none; padding: 0; }
-.post-stub { border-bottom: 1px dotted #303030; margin: 0; position: relative; }
+.post-stub { border-bottom: 1px dotted #f75175; margin: 0; position: relative; }
 .post-stub:first-child { padding-top: 0; }
 .post-stub a { -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; transition: all .2s ease-in-out; display: block; color: #424242; padding: 20px 5px; }
-.post-stub a:hover { background: #fcffff; color: #38c2f0; padding: 20px 12px; }
+.post-stub a:hover { background: #fff3f5; color: #f75175; padding: 20px 12px; }
 .post-stub a:hover .post-stub-tag { background: #38c2f0; }
-.post-stub-tag { background: #303030; border-radius: 3px; color: #fff; float: right; font-size: 10px; margin: 7px 0 0; padding: 0 5px; text-transform: uppercase; }
+.post-stub-tag { background: #f75175; border-radius: 3px; color: #fff; float: right; font-size: 10px; margin: 7px 0 0; padding: 0 5px; text-transform: uppercase; }
 .post-stub-title { display: inline-block; margin: 0; text-transform: none; }
 .post-stub-description { display: inline-block; margin: 0; text-transform: none; }
 .post-stub-date { display: inline-block; }
 .post-stub-date:before { content: "/ "; }
 .next-posts-link a, .previous-posts-link a { display: block; padding: 8px 11px; }
 .author-profile { margin: 0 40px; }
-.author-profile:after { border-bottom: 1px dotted #303030; content: ""; display: block; margin: 40px auto 0; width: 100px; }
+.author-profile:after { border-bottom: 1px dotted #f75175; content: ""; display: block; margin: 40px auto 0; width: 100px; }
 .author-heading { margin: 15px auto; text-align: center; width: 100%; }
 .author-avatar { border-radius: 50px; display: inline; height: 50px; margin: 5px 10px 0 0; width: 50px; vertical-align: middle; }
 .author-name { display: inline; font-size: 52px; font-weight: 700; text-align: center; text-transform: uppercase; vertical-align: middle; }
@@ -169,11 +169,11 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .author-bio { margin: 20px auto 0; text-align: center; max-width: 700px; }
 .footer { background: #fefefe; color: #d3d3d3; height: 265px; margin-top: 95px; overflow: auto; }
 .footer .site-title-wrapper { margin: 80px auto 35px; }
-.footer .site-title a:hover, .footer .button-square:hover { background: #121212; }
+.footer .site-title a:hover, .footer .button-square:hover { background: #f75175; }
 .footer .social-icons { width: 220px; margin: 10px auto; }
 .footer-copyright { color: #656565; font-size: 14px; margin: 0; text-align: center; text-transform: uppercase; }
 .footer-copyright a { color: #656565; font-weight: 700; }
-.footer-copyright a:hover { color: #fefefe; }
+.footer-copyright a:hover { color: #fff; }
 #nprogress .bar { background: #38c2f0; }
 #nprogress .peg { box-shadow: 0 0 10px #38c2f0, 0 0 5px #38c2f0; }
 #nprogress .spinner-icon { border-top-color: #38c2f0; border-left-color: #38c2f0; }
@@ -188,7 +188,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
  blockquote { margin: 30px 0; }
  pre { margin: 20px 0; }
  hr { margin: 35px 0; }
- .site-header { padding-top: 40px; }
+ .site-header { padding-top: 30px; }
  .site-title { float: none; margin-bottom: 15px; }
  .site-title a { float: none; }
  .site-title + .button-square { margin-left: 0; }
@@ -214,7 +214,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 }
 @media only screen and (max-width: 400px) {
  .site-header { padding-top: 40px; }
- .post-title, .page-title, .author-name, .author-heading { font-size: 30px; line-height: 2; word-wrap: break-word; overflow-wrap: break-word; }
+ .post-title, .page-title, .author-name, .author-heading { font-size: 30px; line-height: 1.25; word-wrap: break-word; overflow-wrap: break-word; margin: 2rem 0 .5rem; }
  .post-date, .blog-description, .author-meta { line-height: 1.6; }
  .post-date, .blog-description, .author-meta { margin-top: 10px; }
  .post-date:after, .post-date:before, .blog-description:after,

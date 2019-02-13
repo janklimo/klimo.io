@@ -3,7 +3,7 @@
 // ============================================================ //
 
 $primary: #38c2f0;
-$secondary: #303030;
+$secondary:#F75175;
 $background: #FEFEFE;
 
 /* ============================================================ */
@@ -180,6 +180,10 @@ table {
         min-height: 100%;
     /* This must be the same as the height of the footer */
     margin-bottom: -210px;
+    max-width: 50rem;
+    padding: 2.625rem 1.3125rem;
+    margin-left: auto;
+    margin-right: auto;
 
     &:after {
         content: "";
@@ -193,7 +197,7 @@ table {
     background: $secondary;
     border: none;
     border-radius: 3px;
-    color: #FEFEFE;
+    color: #FFFFFF;
     font-size: 14px;
     font-weight: 700;
     padding: 10px 12px;
@@ -237,11 +241,10 @@ table {
 }
 
 .profile-image {
-    margin-right: 0.875rem;
-    margin-bottom: 0px;
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
+    margin: 1rem auto;
 }
 
 .site-title-wrapper {
@@ -259,7 +262,7 @@ table {
     a {
         float: left;
         background: $primary;
-        color: #FEFEFE;
+        color: #FFFFFF;
         padding: 5px 10px 6px;
 
         &:hover { background: $secondary; }
@@ -283,7 +286,7 @@ table {
     font-weight: 700;
     margin: 0 10px;
 
-    a:hover { color: #424242; }
+    a:hover { color: $secondary; }
 }
 
 /* ============================================================ */
@@ -306,7 +309,6 @@ table {
     font-size: 52px;
     font-weight: 700;
     margin: 3rem 0 1.5rem;
-    text-transform: uppercase;
     text-align: left;
 }
 
@@ -401,7 +403,7 @@ table {
 .older-posts {
     float: left;
     background: $primary;
-    color: #FEFEFE;
+    color: #FFFFFF;
     font-size: 14px;
     font-weight: 600;
     margin: 0 5px;
@@ -440,8 +442,8 @@ table {
         padding: 20px 5px;
 
         &:hover {
-            background: #FCFFFF;
-            color: $primary;
+            background: #fff3f5;
+            color: $secondary;
             padding: 20px 12px;
 
             .post-stub-tag { background: $primary; }
@@ -565,7 +567,7 @@ table {
 
     .site-title a:hover,
     .button-square:hover {
-        background: #121212;
+        background: $secondary;
     }
 
     .social-icons {
@@ -585,7 +587,7 @@ table {
         color: #656565;
         font-weight: 700;
 
-        &:hover { color: #FEFEFE; }
+        &:hover { color: #FFFFFF; }
     }
 }
 
@@ -626,7 +628,7 @@ table {
     hr { margin: 35px 0; }
 
     .site-header {
-        padding-top: 40px;
+        padding-top: 30px;
     }
 
     .site-title {
@@ -742,9 +744,10 @@ table {
     .author-name,
     .author-heading {
         font-size: 30px;
-        line-height: 2;
+        line-height: 1.25;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        margin: 2rem 0 0.5rem;
     }
 
     .post-date,
