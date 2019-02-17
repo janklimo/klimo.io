@@ -5,6 +5,7 @@
 $primary: #38c2f0;
 $secondary:#F75175;
 $background: #FEFEFE;
+$gray: #a8a1a1;
 
 /* ============================================================ */
 /* Base */
@@ -265,7 +266,7 @@ table {
 
 .tagline {
     text-transform: none;
-    color: #9a9a9a;
+    color: $gray;
     font-family: monospace;
     font-size: 16px;
 }
@@ -512,8 +513,9 @@ table {
 
 .post-stub-date {
     display: inline-block;
-
-    &:before { content: "/ "; }
+    font-size: 0.75rem;
+    margin-left: 10px;
+    color: $gray;
 }
 
 .next-posts-link a,
