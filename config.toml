@@ -5,6 +5,9 @@ languageCode = "en-us"
 copyright = "Jan Klimo"
 disqusShortname = "XXX"
 
+[blackfriday]
+    hrefTargetBlank = true
+
 [Privacy]
 
 [Privacy.disqus]
@@ -32,11 +35,10 @@ disqusShortname = "XXX"
     stackoverflow = "https://stackoverflow.com/users/3678689/jan-klimo"
     opengraph = true
     shareTwitter = true
-    dateFormat = "Mon, Jan 2, 2006"
+    dateFormat = "January 2, 2006"
     highlightJsUrl = ""
     highlightJsLocalUrl = ""
     readingTime = true
-    readingTimeText = "Estimated reading time:"
     domain = "https://www.klimo.io"
 
 [Permalinks]
