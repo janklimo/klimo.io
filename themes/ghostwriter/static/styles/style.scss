@@ -415,7 +415,7 @@ table {
 }
 
 .share {
-    float: right;
+    text-align: right;
 
     a {
         background: $primary;
@@ -750,7 +750,7 @@ table {
     }
 
     .share {
-        float: left;
+        text-align: left;
         margin-top: 20px;
 
         a {
