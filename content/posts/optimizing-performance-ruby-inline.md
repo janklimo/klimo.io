@@ -16,10 +16,8 @@ After cloning the gem repo and running `ruby-prof test/benchmark_test.rb`, we ge
   8.12      9.604     5.498     0.000     4.106   275009   Dalli::Ring#binary_search
   5.01      3.390     3.390     0.000     0.000   272536   Kgio::SocketMethods#kgio_write
 ```
+
 That sparked my curiosity. Why is `dalli` spending so much time in `Dalli::Ring#binary_search` and can it be improved?
-
-
-
 
 ```ruby
 begin
@@ -39,7 +37,6 @@ end
 ```
 
 You can see the full source [here](https://github.com/petergoldstein/dalli/blob/17344b625676bd1aa45f87757e0b718a3e1ae282/lib/dalli/ring.rb#L78).
-
 
 ```
  %self      total      self      wait     child     calls  name
