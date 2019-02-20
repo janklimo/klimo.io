@@ -193,13 +193,6 @@ table {
     padding: 2.625rem 1.3125rem;
     margin-left: auto;
     margin-right: auto;
-
-    &:after {
-        content: "";
-        display: block;
-        /* This must be the same as the height of the footer */
-        height: 265px;
-    }
 }
 
 .button {
@@ -598,7 +591,7 @@ table {
     background: $background;
     color: #D3D3D3;
     height: 265px;
-    margin-top: 95px;
+    margin-top: 200px;
     overflow: auto;
 
     .site-title-wrapper { margin: 80px auto 35px; }
@@ -725,6 +718,10 @@ table {
 
     .post-stub-title { display: block; }
 
+    .post-stub-date {
+        margin-left: 0;
+    }
+
     .post-stub-date:before {
         content: "";
         display: block;
@@ -759,7 +756,7 @@ table {
     }
 
     .footer {
-        margin-top: 50px;
+        margin-top: 150px;
 
         .site-title-wrapper {
             text-align: center;
@@ -840,7 +837,7 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
 #mc_embed_signup input.email {font-family: inherit; font-size: 15px; border: 1px solid #ABB0B2;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #343434; background-color: #fff; box-sizing:border-box; height:32px; padding: 0px 0.4em; display: inline-block; margin: 0; width:350px; vertical-align:top;}
 #mc_embed_signup label {display:block;font-size: 1.35rem; padding-bottom:10px; font-weight:bold;}
 #mc_embed_signup .clear {display: inline-block;} /* positions button horizontally in line with input */
-#mc_embed_signup .button {font-size: 13px; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; letter-spacing: .03em; color: #fff; background: $primary; box-sizing:border-box; height:32px; line-height:32px; padding:0 18px; display: inline-block; margin: 0; transition: all 0.23s ease-in-out 0s;}
+#mc_embed_signup .button {font-size: 13px; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; letter-spacing: .03em; color: #fff; background: $primary; box-sizing:border-box; height:32px; line-height:32px; padding:0 18px; display: inline-block; margin: 0 0 0 5px; transition: all 0.23s ease-in-out 0s;}
 #mc_embed_signup .button:hover {background-color: #f75175}
 #mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
 #mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
@@ -852,5 +849,5 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
 @media (max-width: 768px) {
     #mc_embed_signup input.email {width:100%; margin-bottom:5px;font-size:16px;}
     #mc_embed_signup .clear {display: block; width: 100% }
-    #mc_embed_signup .button {width: 100%; margin:0; }
+    #mc_embed_signup .button {width: 100%; margin: 5px 0 0 0; }
 }
