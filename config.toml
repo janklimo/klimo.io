@@ -28,7 +28,7 @@ disqusShortname = "XXX"
 [Params]
     intro = true
     headline = "My headline"
-    description = "My description"
+    description = "Personal blog by Jan Klimo"
     github = "https://github.com/janklimo"
     linkedin = "https://www.linkedin.com/in/janklimo/"
     twitter = "https://twitter.com/janklimo"
