@@ -1,5 +1,6 @@
 +++
 title = "Speeding Things Up With Ruby Inline"
+description = "Rewriting your hot Ruby code in C while staying simple by default."
 date = 2019-02-21T13:26:15+07:00
 tags = ["Ruby"]
 draft = false
