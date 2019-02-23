@@ -13,6 +13,7 @@
         <meta name="robots" content="index,follow">
         {{ if .Site.Params.opengraph }}{{ partial "opengraph.html" . }}{{ end }}
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/styles.css">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
         <link href="//fonts.googleapis.com/css?family=PT+Sans:400,600,700,900" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         {{ if .RSSLink }}
