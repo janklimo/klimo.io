@@ -82,10 +82,6 @@ disqusShortname = "XXX"
     dateFormat = "Mon, Jan 2, 2006"
     highlightJsUrl = ""
     highlightJsLocalUrl = ""
-    exponeaJsUrl = ""
-    exponeaTarget = ""
-    exponeaToken = ""
-    exponeaTrackVisits = false
     readingTime = true
     readingTimeText = "Estimated reading time:"
 

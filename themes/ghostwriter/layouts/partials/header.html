@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html{{ if .Site.Params.opengraph }} prefix="og: http://ogp.me/ns#"{{ end }}>
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134476453-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-134476453-1');
-        </script>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{ partial "favicon.html" . }}
         <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
         <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
@@ -19,7 +11,6 @@
         <meta name="MobileOptimized" content="320">
         {{ .Hugo.Generator }}
         <meta name="robots" content="index,follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{ if .Site.Params.opengraph }}{{ partial "opengraph.html" . }}{{ end }}
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/styles.css">
         <link href="//fonts.googleapis.com/css?family=PT+Sans:400,600,700,900" rel="stylesheet" type="text/css">
@@ -28,7 +19,14 @@
             <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml">
         {{ end }}
         {{ partial "extra-in-head.html" . }}
-        {{ partial "exponea.html" . }}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134476453-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134476453-1');
+        </script>
     </head>
     <body>
         <div id="wrapper">
