@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+<link rel="icon" type="image/png" href="/images/touch-icon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-180x180.png" sizes="180x180" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-167x167.png" sizes="167x167" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-152x152.png" sizes="152x152" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-144x144.png" sizes="144x144" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-120x120.png" sizes="120x120" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-114x114.png" sizes="114x114" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-76x76.png" sizes="76x76" />
+<link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-72x72.png" sizes="72x72" />
+<link rel="apple-touch-icon-precomposed" type="image/x-icon" href="/images/apple-touch-icon-precomposed.png" />
+<link rel="apple-touch-startup-image" type="image/x-icon" href="/images/apple-touch-startup-image.png" />
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+        <title>Speeding Things Up With Ruby Inline &middot; A blog by Jan Klimo</title>
+        <meta name="description" content="Rewriting your hot Ruby code in C while staying simple by default.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta property="og:title" content="Speeding Things Up With Ruby Inline">
+<meta property="og:description" content="Rewriting your hot Ruby code in C while staying simple by default.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.klimo.io/posts/optimizing-performance-ruby-inline/">
+<meta property="og:image" content="https://www.klimo.io/images/cover.png" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@janklimo">
+<meta name="twitter:creator" content="@janklimo">
+<meta name="twitter:title" content="Speeding Things Up With Ruby Inline">
+<meta name="twitter:description" content="Rewriting your hot Ruby code in C while staying simple by default.">
+<meta name="twitter:image" content="https://www.klimo.io/images/cover.png">
+        <link rel="stylesheet" href="/dist/styles.css">
+        <link href="maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
+        <link href="fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="www.googletagmanager.com" rel="preconnect" crossorigin>
+        <link href="cdnjs.cloudflare.com" rel="preconnect" crossorigin>
+        <link href="//fonts.googleapis.com/css?family=PT+Sans:400,600,700,900" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134476453-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134476453-1');
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        <h1 class="site-title">
+                            <a title="Klimo.io" href="/">Klimo.io</a>
+                        </h1>
+                    </div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/projects/">Projects</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Speeding Things Up With Ruby Inline</h1>
+    <p class="post-date post-line">
+        <span><time datetime="2019-02-21" itemprop="datePublished">February 21, 2019</time></span>
+        
+            <span> • 2 min read</span>
+        
+    </p>
+</header>
+
+
+        <div class="post-content clearfix">
+    
+
+    <p>One of the fun exercises in <a href="https://www.railsspeed.com/" target="_blank">The Complete Guide to Rails Performance</a> is to profile
+the <a href="https://github.com/petergoldstein/dalli" target="_blank"><code>dalli</code></a> gem with <a href="https://github.com/ruby-prof/ruby-prof" target="_blank"><code>ruby-prof</code></a>.</p>
+
+<p>After cloning the repository and running <code>ruby-prof test/benchmark_test.rb</code>, we get the following summary:</p>
+
+<pre><code> %self      total      self      wait     child     calls  name
+ 13.56      9.181     9.181     0.000     0.000   193917   &lt;Class::IO&gt;#select
+  8.12      9.604     5.498     0.000     4.106   275009   Dalli::Ring#binary_search
+  5.01      3.390     3.390     0.000     0.000   272536   Kgio::SocketMethods#kgio_write
+   ...
+</code></pre>
+
+<p>That sparked my curiosity. Why is <code>dalli</code> spending so much time in <code>binary_search</code> and can it be improved?</p>
+
+<p>As it turns out, <code>dalli</code> already takes care of it in a pretty interesting way. Here&rsquo;s a simplified version of
+<code>binary_search</code> method definition (full source <a href="https://github.com/petergoldstein/dalli/blob/17344b625676bd1aa45f87757e0b718a3e1ae282/lib/dalli/ring.rb#L78" target="_blank">here</a>):</p>
+
+<pre><code class="language-ruby">begin
+  require 'inline'
+  inline do |builder|
+    builder.c &lt;&lt;-EOM
+      int binary_search(VALUE ary, unsigned int r) {
+        // C implementation
+      }
+    EOM
+  end
+rescue LoadError
+  def binary_search(ary, value)
+    # Ruby implementation
+  end
+end
+</code></pre>
+
+<p>We&rsquo;re making use of <a href="https://github.com/seattlerb/rubyinline" target="_blank"><code>rubyinline</code></a> gem which lets you embed small snippets
+of C into your code. They get automatically compiled and loaded into the class/module that
+defines them. Definitely handy if all you need is a few lines of C to speed things up.</p>
+
+<p>Why not go the more common native extension route, you might ask? This comment from the source provides an indication:</p>
+
+<blockquote>
+<p>optional for performance and only necessary if you are using multiple <code>memcached</code> servers.</p>
+</blockquote>
+
+<p>Clearly, the typical user won&rsquo;t need the native extension. More often than not,
+they&rsquo;re a <a href="https://stackoverflow.com/search?q=ruby+native+extension" target="_blank">source of frustration</a>.</p>
+
+<p>I like the flexibility of this <em>simple-by-default</em> design. It allows you to optimize only if your metrics tell you so.
+If you need more speed, all you need to do is include <code>rubyinline</code> in your bundle, without
+further configuration in your code. Here&rsquo;s the kind of performance you&rsquo;ll get:</p>
+
+<pre><code> %self      total      self      wait     child     calls  name
+ 13.57      7.796     7.796     0.000     0.000   197184   &lt;Class::IO&gt;#select
+  6.39      3.672     3.672     0.000     0.000   272536   Kgio::SocketMethods#kgio_write
+   ...
+  0.77      0.440     0.440     0.000     0.000   275009   Dalli::Ring#binary_search
+
+</code></pre>
+
+<p>Out of the box, fallback to Ruby implementation by means of <code>LoadError</code> has you covered.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/ruby/">Ruby</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+        <a class="icon-twitter" href="https://twitter.com/share?text=Speeding%20Things%20Up%20With%20Ruby%20Inline by @janklimo&hashtags=Ruby&url=https%3a%2f%2fwww.klimo.io%2fposts%2foptimizing-performance-ruby-inline%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+    </div>
+
+    
+<div id="mc_embed_signup">
+    <form action="https://klimo.us2.list-manage.com/subscribe/post?u=60a38ce5acde10117dd351c1c&amp;id=89ad965331" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <label for="mce-EMAIL">Subscribe to get my latest content by email</label>
+            <p class="intro">Let me notify you when I publish a new post (once or twice a month).</p>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+            
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_60a38ce5acde10117dd351c1c_89ad965331" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+</div>
+
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Klimo.io" href="/">Klimo.io</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+                <div class="social-icons">
+    
+        <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/janklimo" target="_blank">
+            <i class="fa fa-twitter"></i>
+        </a>
+    
+    
+        <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/janklimo" target="_blank">
+            <i class="fa fa-github-alt"></i>
+        </a>
+    
+    
+        <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="https://stackoverflow.com/users/3678689/jan-klimo" target="_blank">
+            <i class="fa fa-stack-overflow"></i>
+        </a>
+    
+    
+        <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/janklimo/" target="_blank">
+            <i class="fa fa-linkedin"></i>
+        </a>
+    
+    <a class="button-square" target="_blank" href="/index.xml"><i class="fa fa-rss"></i></a>
+</div>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+

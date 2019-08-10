@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Klimo.io</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Klimo.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Jan Klimo</copyright>
+    <lastBuildDate>Thu, 08 Aug 2019 00:00:00 +0700</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CircleCI</title>
+      <link>/tags/circleci/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tags/circleci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>/tags/rails/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell scripting</title>
+      <link>/tags/shell-scripting/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tags/shell-scripting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>/tags/ruby/</link>
+      <pubDate>Thu, 21 Feb 2019 13:26:15 +0700</pubDate>
+      
+      <guid>/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

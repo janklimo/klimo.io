@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Klimo.io</title>
+    <link>/tags/ruby/</link>
+    <description>Recent content in Ruby on Klimo.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Jan Klimo</copyright>
+    <lastBuildDate>Thu, 21 Feb 2019 13:26:15 +0700</lastBuildDate>
+    
+	<atom:link href="/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Speeding Things Up With Ruby Inline</title>
+      <link>/posts/optimizing-performance-ruby-inline/</link>
+      <pubDate>Thu, 21 Feb 2019 13:26:15 +0700</pubDate>
+      
+      <guid>/posts/optimizing-performance-ruby-inline/</guid>
+      <description>One of the fun exercises in The Complete Guide to Rails Performance is to profile the dalli gem with ruby-prof.
+After cloning the repository and running ruby-prof test/benchmark_test.rb, we get the following summary:
+ %self total self wait child calls name 13.56 9.181 9.181 0.000 0.000 193917 &amp;lt;Class::IO&amp;gt;#select 8.12 9.604 5.498 0.000 4.106 275009 Dalli::Ring#binary_search 5.01 3.390 3.390 0.000 0.000 272536 Kgio::SocketMethods#kgio_write ...  That sparked my curiosity. Why is dalli spending so much time in binary_search and can it be improved?</description>
+    </item>
+    
+  </channel>
+</rss>
