@@ -2,7 +2,7 @@
 title = "Automating AWS Workflows"
 description = "Using AWS CLI to automatically upload assets to S3 and invalidate CloudFront cache, both locally and on CircleCI."
 date = 2019-08-10
-tags = ["AWS", "CircleCI", "Shell scripting", "Rails"]
+tags = ["AWS", "CircleCI", "shell", "rubyonrails"]
 draft = false
 +++
 
