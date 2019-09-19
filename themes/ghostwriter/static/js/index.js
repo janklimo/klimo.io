@@ -7,6 +7,7 @@ import ruby from "highlight.js/lib/languages/ruby";
 import typescript from "highlight.js/lib/languages/typescript";
 import yaml from "highlight.js/lib/languages/yaml";
 
+import "normalize.css";
 import "highlight.js/styles/zenburn.css";
 import "../styles/index.scss";
 
