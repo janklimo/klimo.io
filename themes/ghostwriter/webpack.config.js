@@ -1,42 +1,51 @@
 const path = require("path");
-const discardComments = require("postcss-discard-comments");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: {
-    styles: path.join(__dirname, "static", "styles")
-  },
-  resolve: {
-    modules: ["node_modules"],
-    extensions: [".js", ".scss"]
-  },
+  entry: "./static/js/index.js",
   output: {
-    path: path.join(__dirname, "static", "dist"),
-    filename: "[name].css"
+    path: path.resolve(__dirname, "static"),
+    filename: "bundle.js"
   },
-  plugins: [
-    new ExtractTextPlugin("[name].css"),
-    new OptimizeCssAssetsPlugin({
-      cssProcessor: discardComments,
-      canPrint: false
-    }),
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: {
-        format: "compact"
-      },
-      canPrint: false
-    })
-  ],
+  mode: "production",
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader!sass-loader"
-        })
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "postcss-loader"
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass")
+            }
+          }
+        ]
       }
     ]
-  }
+  },
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "styles.css"
+    })
+  ]
 };

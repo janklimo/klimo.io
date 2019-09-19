@@ -1,3 +1,9 @@
+import jQuery from "jquery";
+
+import "../styles/index.scss";
+
+console.log("awesome!");
+
 jQuery(function($) {
   /* ============================================================ */
   /* Scroll To Top */
