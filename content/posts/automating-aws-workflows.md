@@ -39,7 +39,7 @@ Let's tackle the 5 steps outlined above one by one. My script is placed in `bin/
 
 Any environment variables you pass to `Webpacker` can be accessed from `process.env` object. With that in mind, we can set up our `production.js` file to watch out for a variable that'd disable chunk splitting:
 
-```js
+```javascript
 if (!process.env.PUBLISH_CLIENT) {
   environment.splitChunks(config =>
     Object.assign({}, config, {
@@ -144,7 +144,7 @@ To begin with, my CircleCI workflow runs two jobs: one to run specs, the other o
 
 We'll make use of _orbs_ functionality in CircleCI 2.1. At the beginning of `config.yml`, add:
 
-```
+```yaml
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@0.1.13
@@ -152,7 +152,7 @@ orbs:
 
 so that we can easily define installation and configuration steps with:
 
-```
+```yaml
 publish-client:
   steps:
     - aws-cli/install
@@ -161,7 +161,7 @@ publish-client:
 
 Because we have AWS CLI installed and configured, we can run our shell script like we would do locally:
 
-```
+```yaml
 - run:
     name: Publish client
     command: bin/publish_client
@@ -169,7 +169,7 @@ Because we have AWS CLI installed and configured, we can run our shell script li
 
 Finally, let's make sure `publish-client` runs only if deployment to Heroku was successful.
 
-```
+```yaml
 workflows:
   version: 2
   build-deploy:

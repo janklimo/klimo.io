@@ -26,7 +26,7 @@
         <meta property="og:title" content="Automating AWS Workflows">
 <meta property="og:description" content="Using AWS CLI to automatically upload assets to S3 and invalidate CloudFront cache, both locally and on CircleCI.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.klimo.io/posts/optimizing-asset-publishing-workflow-aws/">
+<meta property="og:url" content="https://www.klimo.io/posts/automating-aws-workflows/">
 <meta property="og:image" content="https://www.klimo.io/images/cover.png" />
 
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
 <meta name="twitter:title" content="Automating AWS Workflows">
 <meta name="twitter:description" content="Using AWS CLI to automatically upload assets to S3 and invalidate CloudFront cache, both locally and on CircleCI.">
 <meta name="twitter:image" content="https://www.klimo.io/images/cover.png">
-        <link rel="stylesheet" href="/dist/styles.css">
+        <link rel="stylesheet" href="//styles.css">
         <link href="maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
         <link href="fonts.googleapis.com" rel="preconnect" crossorigin>
         <link href="www.googletagmanager.com" rel="preconnect" crossorigin>
@@ -84,9 +84,9 @@
         <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Automating AWS Workflows</h1>
     <p class="post-date post-line">
-        <span><time datetime="2019-08-08" itemprop="datePublished">August 8, 2019</time></span>
+        <span><time datetime="2019-08-10" itemprop="datePublished">August 10, 2019</time></span>
         
-            <span> • 2 min read</span>
+            <span> • 6 min read</span>
         
     </p>
 </header>
@@ -98,12 +98,12 @@
     
 
 <blockquote>
-<p>This article shows you how to use AWS CLI programmatically to automate your deployment process. We&rsquo;ll upload assets to S3 (specifying their ACL and caching behavior) and invalidate CloudFront cache. Starting with a local shell script, we conclude with plugging the script into our CircleCI workflow. It may be especially useful if you&rsquo;re using Rails with Webpacker, but no experience with Rails is required.</p>
+<p>This article shows you how to use AWS CLI programmatically to automate your deployment process. We&rsquo;ll upload assets to S3 (specifying their ACL and caching behavior) and invalidate CloudFront cache. Starting with a local shell script, we conclude with plugging the script into our CircleCI workflow. It may be especially useful if you&rsquo;re using Rails with <code>Webpacker</code>, but no experience with Rails is required.</p>
 </blockquote>
 
 <p>My latest Shopify app <a href="https://apps.shopify.com/robin-pro-image-gallery" target="_blank">Robin PRO</a> renders image galleries on customer stores. When the store loads, it fetches a remote script (<code>client.js</code>) together with a stylesheet (<code>client.css</code>), requests gallery data and renders the result.</p>
 
-<h4 id="how-to-serve-these-assets">How to serve these assets?</h4>
+<h3 id="how-to-serve-these-assets">How to serve these assets?</h3>
 
 <p>All the app assets are served from a CDN, so why not just serve them from the same distribution, right? There are 2 challenges with this:</p>
 
@@ -122,7 +122,172 @@
 <li>Invalidate CloudFront cache to force clients to fetch the latest assets.</li>
 </ol>
 
-<p>This only takes a few minutes, so it was acceptable to do manually a couple of times.</p>
+<p>All in all, not too terrible to do manually in a few minutes if these releases are infrequent. However, once they do get more frequent, it&rsquo;s time to optimize the process - you&rsquo;re wasting a lot of time on something that a machine can do both better and faster.</p>
+
+<blockquote>
+<p>Making a tedious process fully automated is one of programming&rsquo;s greatest joys.</p>
+</blockquote>
+
+<p><img src="/posts/automating-aws-workflows/automate.jpg" alt="automate all things" /></p>
+
+<h3 id="asset-deployment-script">Asset deployment script</h3>
+
+<p>Let&rsquo;s tackle the 5 steps outlined above one by one. My script is placed in <code>bin/publish_client</code>. You can find the full source in <a href="https://gist.github.com/janklimo/de516d05a42dce5d3bf9084228c4cc33" target="_blank">this gist</a>.</p>
+
+<h5 id="selectively-disabling-code-splitting">Selectively disabling code splitting</h5>
+
+<p>Any environment variables you pass to <code>Webpacker</code> can be accessed from <code>process.env</code> object. With that in mind, we can set up our <code>production.js</code> file to watch out for a variable that&rsquo;d disable chunk splitting:</p>
+
+<pre><code class="language-javascript">if (!process.env.PUBLISH_CLIENT) {
+  environment.splitChunks(config =&gt;
+    Object.assign({}, config, {
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            vendor: {
+              test: /node_modules/,
+              chunks: &quot;all&quot;,
+              name: &quot;vendor&quot;,
+              enforce: true
+            }
+          }
+        }
+      }
+    })
+  );
+}
+</code></pre>
+
+<h5 id="precompiling-assets-locally">Precompiling assets locally</h5>
+
+<p>We can start writing our shell script:</p>
+
+<pre><code class="language-bash">#!/bin/sh
+
+# Clean slate
+echo &quot;Cleaning up old assets and packs...&quot;
+rm -rf public/assets public/packs
+
+# Precompile assets for production
+echo &quot;Precompiling assets...&quot;
+bundle exec rake assets:precompile RAILS_ENV=production PUBLISH_CLIENT=true
+</code></pre>
+
+<p>In the first step, we clean the public folder. In the second one we precompile assets in production environment. This will minify your code, etc. We pass in the <code>PUBLISH_CLIENT</code> flag to make sure we get one JS bundle for each JS pack.</p>
+
+<h5 id="uploading-assets-to-s3">Uploading assets to S3</h5>
+
+<p>We&rsquo;ll need <code>AWS CLI</code> to continue so <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank">install</a> that first.</p>
+
+<p>Then we&rsquo;ll need an IAM user with permissions to access S3 and CloudFront. Navigate to your <a href="https://console.aws.amazon.com/iam" target="_blank">IAM console</a> and follow these steps:</p>
+
+<p><img src="/posts/automating-aws-workflows/create_iam.gif" alt="creating an IAM user" /></p>
+
+<p>This gives your user <em>full</em> access to S3 and CloudFront. In general, it&rsquo;s a good idea to make these permissions stricter but I&rsquo;ll stick to default policies for the sake of simplicity.</p>
+
+<p>Next, run <code>aws configure</code> in your terminal, you will be prompted for these four inputs:</p>
+
+<p><img src="/posts/automating-aws-workflows/aws_configure.gif" alt="aws configure" /></p>
+
+<p>Insert the credentials obtained in the previous step. They&rsquo;ll be saved under a default profile found at <code>~/.aws/credentials</code>. Now you can use AWS CLI and authentication will be handled automatically for you. Try running <code>aws s3 ls</code> - if you can see a list of your S3 buckets, you&rsquo;re all set!</p>
+
+<p>Copying our assets to S3 becomes trivial:</p>
+
+<pre><code class="language-bash"># Upload client JS
+echo &quot;Uploading client JS to S3...&quot;
+js_file_path=$(find ./public/packs/js -name &quot;client-*.js&quot;)
+aws s3 cp $js_file_path s3://awesome-gallery/js/client.js \
+  --cache-control &quot;max-age=86400&quot; \
+  --acl public-read
+
+# Upload client CSS
+echo &quot;Uploading client CSS to S3...&quot;
+css_file_path=$(find ./public/assets -name &quot;client-*.css&quot;)
+aws s3 cp $css_file_path s3://awesome-gallery/css/client.css \
+  --cache-control &quot;max-age=86400&quot; \
+  --acl public-read
+</code></pre>
+
+<p>ACL, headers, and lots of other stuff can be set by passing options to the <code>cp</code> command. See the <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html" target="_blank">docs</a> for more info.</p>
+
+<h5 id="invalidating-cloudfront-cache">Invalidating CloudFront cache</h5>
+
+<p>Now that the assets are uploaded, the final step is to invalidate CDN cache:</p>
+
+<pre><code class="language-bash"># Invalidate CDN cache
+echo &quot;Invalidating CDN cache...&quot;
+aws cloudfront create-invalidation \
+  --distribution-id E37OOSQGDX84GR \
+  --paths /js/* /css/*
+</code></pre>
+
+<p>And that&rsquo;s it! From now on, all we need to do is run <code>bin/publish_client</code> 🎉</p>
+
+<p>But you know what&rsquo;s better than running a script every time we release a new feature (and forgetting to do so every now and then)? You guessed it: plugging the script into our CI workflow so that we never even have to think about it again.</p>
+
+<h3 id="circleci-job">CircleCI job</h3>
+
+<p>We&rsquo;ll want to keep our credentials out of source control, so let&rsquo;s begin by configuring them as environment variables in CircleCI. Under Build settings - Environment variables, set <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, and <code>AWS_DEFAULT_REGION</code>. AWS CLI defaults to these variables so they&rsquo;ll be easily found.</p>
+
+<p><img src="/posts/automating-aws-workflows/circleci.png" alt="CircleCI" /></p>
+
+<h5 id="strategy">Strategy</h5>
+
+<p>To begin with, my CircleCI workflow runs two jobs: one to run specs, the other one to deploy to Heroku. Let&rsquo;s add a third one named <code>publish-client</code> that runs our shell script after we deploy to Heroku successfully.</p>
+
+<h5 id="steps">Steps</h5>
+
+<p>We&rsquo;ll make use of <em>orbs</em> functionality in CircleCI 2.1. At the beginning of <code>config.yml</code>, add:</p>
+
+<pre><code class="language-yaml">version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+</code></pre>
+
+<p>so that we can easily define installation and configuration steps with:</p>
+
+<pre><code class="language-yaml">publish-client:
+  steps:
+    - aws-cli/install
+    - aws-cli/configure
+</code></pre>
+
+<p>Because we have AWS CLI installed and configured, we can run our shell script like we would do locally:</p>
+
+<pre><code class="language-yaml">- run:
+    name: Publish client
+    command: bin/publish_client
+</code></pre>
+
+<p>Finally, let&rsquo;s make sure <code>publish-client</code> runs only if deployment to Heroku was successful.</p>
+
+<pre><code class="language-yaml">workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - test
+      - deploy-master:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - publish-client:
+          requires:
+            - deploy-master
+          filters:
+            branches:
+              only: master
+</code></pre>
+
+<p>Clearly, I have extracted only the interesting bits from my <code>config.yml</code> file. If you&rsquo;d like to see the full version, you can find it <a href="https://gist.github.com/janklimo/9175064c792d91dbeffcefcf1020b51b" target="_blank">here</a>.</p>
+
+<pre><code class="language-bash">echo &quot;Done!&quot;
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/xNBcChLQt7s9a/source.gif" alt="test" /></p>
+
+<p>In this post we&rsquo;ve converted a slow, error-prone workflow to a fully automated one in under 10 minutes. I hope you&rsquo;ve found the process as satisfying as I did and that it gives you inspiration to optimize your own! I&rsquo;d love to hear what you come up with 👍</p>
 
 </div>
 
@@ -136,16 +301,16 @@
             
                 <a href="/tags/circleci/">CircleCI</a>, 
             
-                <a href="/tags/shell-scripting/">Shell scripting</a>, 
+                <a href="/tags/shell/">shell</a>, 
             
-                <a href="/tags/rails/">Rails</a>
+                <a href="/tags/rubyonrails/">rubyonrails</a>
             
         </p>
     
 
     <div class="share">
         
-        <a class="icon-twitter" href="https://twitter.com/share?text=Automating%20AWS%20Workflows by @janklimo&hashtags=AWS%2c%20CircleCI%2c%20Shell%20scripting%2c%20Rails&url=https%3a%2f%2fwww.klimo.io%2fposts%2foptimizing-asset-publishing-workflow-aws%2f"
+        <a class="icon-twitter" href="https://twitter.com/share?text=Automating%20AWS%20Workflows by @janklimo&hashtags=AWS%2c%20CircleCI%2c%20shell%2c%20rubyonrails&url=https%3a%2f%2fwww.klimo.io%2fposts%2fautomating-aws-workflows%2f"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fa fa-twitter"></i>
             <span class="hidden">Twitter</span>
@@ -209,13 +374,7 @@
             </div>
         </footer>
 
-        <script src="/js/jquery-1.11.3.min.js"></script>
-        
-        
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        
-        
-        <script src="/js/scripts.js"></script>
+        <script src="//bundle.js"></script>
     </body>
 </html>
 

@@ -17,23 +17,23 @@
 <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="/images/apple-touch-icon-precomposed.png" />
 <link rel="apple-touch-startup-image" type="image/x-icon" href="/images/apple-touch-startup-image.png" />
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-        <title>Ruby &middot; A blog by Jan Klimo</title>
-        <meta name="description" content="Personal blog by Jan Klimo">
+        <title>What Is Your App&#39;s MRR? &middot; A blog by Jan Klimo</title>
+        <meta name="description" content="An easy way to find out current MRR of your Shopify app.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.55.6" />
         <meta name="robots" content="index,follow">
-        <meta property="og:title" content="Ruby">
-<meta property="og:description" content="Personal blog by Jan Klimo">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.klimo.io/tags/ruby/">
+        <meta property="og:title" content="What Is Your App&#39;s MRR?">
+<meta property="og:description" content="An easy way to find out current MRR of your Shopify app.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.klimo.io/posts/what-is-your-apps-mrr/">
 <meta property="og:image" content="https://www.klimo.io/images/cover.png" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@janklimo">
 <meta name="twitter:creator" content="@janklimo">
-<meta name="twitter:title" content="Ruby">
-<meta name="twitter:description" content="Personal blog by Jan Klimo">
+<meta name="twitter:title" content="What Is Your App&#39;s MRR?">
+<meta name="twitter:description" content="An easy way to find out current MRR of your Shopify app.">
 <meta name="twitter:image" content="https://www.klimo.io/images/cover.png">
         <link rel="stylesheet" href="//styles.css">
         <link href="maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
@@ -42,8 +42,6 @@
         <link href="cdnjs.cloudflare.com" rel="preconnect" crossorigin>
         <link href="//fonts.googleapis.com/css?family=PT+Sans:400,600,700,900" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
-          <link href="/tags/ruby/index.xml" rel="alternate" type="application/rss+xml">
         
         
         
@@ -81,40 +79,127 @@
             <div id="container">
 
 
-<div id="post-index" class="container">
-    
-    <header class="post-header">
-        <img src="/images/profile_pic.jpg" alt="Jan Klimo" class="profile-image">
-        <p class="greeting">Hi 👋</p>
-        <p class="tagline" class="">
-            I'm <a href="https://twitter.com/janklimo" target="_blank">Jan</a>, software engineer based in Bangkok, Thailand.<br>
-            I build products and share the most interesting things I learn along the way.
-        </p>
-        <svg class="code-brackets" enable-background="new 0 0 500 500" height="100px" id="Layer_1" version="1.1" viewBox="0 0 500 500" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><polygon fill="#231F20" points="195.568,185.811 142.681,250.173 195.568,314.534 208.077,293.962 172.44,250.173      208.077,206.384    "/><polygon fill="#231F20" points="228.707,313 251.922,313 288.816,187 265.6,187    "/><polygon fill="#231F20" points="303.876,185.81 291.37,206.384 327.005,250.173 291.37,293.961 303.876,314.535 356.765,250.173         "/></g></g></svg>
-    </header>
-
-
-
-    <ol class="post-list">
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">What Is Your App&#39;s MRR?</h1>
+    <p class="post-date post-line">
+        <span><time datetime="2019-09-17" itemprop="datePublished">September 17, 2019</time></span>
         
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="/posts/optimizing-performance-ruby-inline/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Speeding Things Up With Ruby Inline</h4>
-        <time class="post-stub-date" datetime="2019-02-21">February 21, 2019
             <span> • 2 min read</span>
-        </time>
         
-    </a>
-</li>
+    </p>
+</header>
 
+
+        <div class="post-content clearfix">
+    
+
+    <p>One of the most useful features I&rsquo;d love to see Shopify add to the Partners portal is
+a chart of your MRR (monthly recurring revenue).</p>
+
+<p>This answers a simple question of <em>What is the current value of all of my active recurring charges?</em>
+In other words, how much money will you receive in the <em>next</em> 30 days?</p>
+
+<p>There is one problem with the <em>Earnings</em> chart:</p>
+
+<p><img src="/posts/what-is-your-apps-mrr/earnings.png" alt="earnings" /></p>
+
+<p>It&rsquo;s a <em>lagging</em> indicator showing you the <em>last</em> 30 days. Not very helpful if you need to know
+if your marketing or sales efforts are moving the needle.</p>
+
+<p>To find out my current MRR, I&rsquo;ve put together a rake task that runs once daily
+(using <a href="https://devcenter.heroku.com/articles/scheduler" target="_blank">Heroku Scheduler</a>) and sends me an
+email with the result (thanks, <a href="https://sendgrid.com/" target="_blank">Sendgrid</a>!).</p>
+
+<p>Here&rsquo;s what it looks like:</p>
+
+<pre><code class="language-ruby"># frozen_string_literal: true
+
+desc 'Send out daily MRR update email'
+task mrr_email: :environment do
+  mrr = 0
+
+  Shop.all.find_each do |shop|
+    ShopifyAPI::Session.temp(
+      domain: shop.shopify_domain,
+      token: shop.shopify_token,
+      api_version: ShopifyApp.configuration.api_version
+    ) do
+      p &quot;Reading #{shop.shopify_domain}...&quot;
+
+      begin
+        current_charge = ShopifyAPI::RecurringApplicationCharge.current
+
+        next unless current_charge
+
+        mrr += current_charge.attributes['price'].to_f
+      rescue ActiveResource::UnauthorizedAccess
+        p 'App uninstalled...'
+      rescue ActiveResource::ClientError
+        p 'Store closed / charge expired...'
+      end
+    end
+  end
+
+  # Account for Shopify's 20% fee
+  final_amount = (mrr * 0.8).round(2)
+  p &quot;Your MRR is $#{final_amount}.&quot;
+
+  NotificationsMailer.mrr_update(amount: final_amount).deliver_now
+end
+</code></pre>
+
+<p><strong>Pro tip:</strong> Set it up so that you receive it as the first thing in the morning and include
+some positive encouragement. You&rsquo;re doing a fine job - make sure you know it&rsquo;s making a
+difference and pat yourself on the shoulder to keep going! 💪</p>
+
+<p>Here&rsquo;s mine:</p>
+
+<p><img src="/posts/what-is-your-apps-mrr/email.png" alt="MRR email" /></p>
+
+<p>Hope it helps!</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/shopify/">Shopify</a>, 
+            
+                <a href="/tags/ruby-on-rails/">Ruby on Rails</a>
+            
+        </p>
+    
+
+    <div class="share">
         
-    </ol>
-
-    <div class="post-navigation">
-        
-
+        <a class="icon-twitter" href="https://twitter.com/share?text=What%20Is%20Your%20App%27s%20MRR%3f by @janklimo&hashtags=Shopify%2c%20Ruby%20on%20Rails&url=https%3a%2f%2fwww.klimo.io%2fposts%2fwhat-is-your-apps-mrr%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
     </div>
+
+    
+<div id="mc_embed_signup">
+    <form action="https://klimo.us2.list-manage.com/subscribe/post?u=60a38ce5acde10117dd351c1c&amp;id=89ad965331" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <label for="mce-EMAIL">Subscribe to get my latest content by email</label>
+            <p class="intro">Let me notify you when I publish a new post (once or twice a month).</p>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+            
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_60a38ce5acde10117dd351c1c_89ad965331" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        </div>
+    </form>
+</div>
+
+</footer>
+    </article>
 </div>
 
             </div>

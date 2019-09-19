@@ -3,49 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/optimizing-asset-publishing-workflow-aws/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/circleci/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rails/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
+    <loc>/tags/ruby-on-rails/</loc>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/shell-scripting/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
+    <loc>/tags/shopify/</loc>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-08-08T00:00:00+07:00</lastmod>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/what-is-your-apps-mrr/</loc>
+    <lastmod>2019-09-17T00:00:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/automating-aws-workflows/</loc>
+    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/circleci/</loc>
+    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rubyonrails/</loc>
+    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shell/</loc>
+    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
