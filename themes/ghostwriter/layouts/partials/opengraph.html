@@ -2,6 +2,8 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="https://www.klimo.io{{ .Permalink }}">
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1170" />
 
 {{ if .Params.tags  }}
   {{ $tags := delimit .Params.tags "," }}
