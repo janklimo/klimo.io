@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shell on Klimo.io</title>
+    <title>Shell on Klimo.io</title>
     <link>/tags/shell/</link>
-    <description>Recent content in shell on Klimo.io</description>
+    <description>Recent content in Shell on Klimo.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jan Klimo</copyright>

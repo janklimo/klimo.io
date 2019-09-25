@@ -24,5 +24,15 @@ There is one problem with the Earnings chart:
 It&amp;rsquo;s a lagging indicator showing you the last 30 days.</description>
     </item>
     
+    <item>
+      <title>Automating AWS Workflows</title>
+      <link>/posts/automating-aws-workflows/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/posts/automating-aws-workflows/</guid>
+      <description>This article shows you how to use AWS CLI programmatically to automate your deployment process. We&amp;rsquo;ll upload assets to S3 (specifying their ACL and caching behavior) and invalidate CloudFront cache. Starting with a local shell script, we conclude with plugging the script into our CircleCI workflow. It may be especially useful if you&amp;rsquo;re using Rails with Webpacker, but no experience with Rails is required.
+ My latest Shopify app Robin PRO renders image galleries on customer stores.</description>
+    </item>
+    
   </channel>
 </rss>
