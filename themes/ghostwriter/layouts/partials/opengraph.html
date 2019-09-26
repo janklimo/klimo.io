@@ -14,13 +14,10 @@
   {{ $title = replace $title "'" "%27" }}
   {{ $title = replace $title " " "%20" }}
 
-  {{ $description := .Description }}
-  {{ $description = replace $description " " "%20" }}
-
   {{ $date := dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}
   {{ $date = replace $date " " "%20" }}
-  <meta property="og:image" content="https://og-image.janklimo.now.sh/{{ $title }}?tags={{ $tags }}&description={{ $description }}&date={{ $date }}&time={{ .ReadingTime }}">
-  <meta name="twitter:image" content="https://og-image.janklimo.now.sh/{{ $title }}?tags={{ $tags }}&description={{ $description }}&date={{ $date }}&time={{ .ReadingTime }}">
+  <meta property="og:image" content="https://og-image.janklimo.now.sh/{{ $title }}?tags={{ $tags }}&date={{ $date }}&time={{ .ReadingTime }}">
+  <meta name="twitter:image" content="https://og-image.janklimo.now.sh/{{ $title }}?tags={{ $tags }}&date={{ $date }}&time={{ .ReadingTime }}">
 {{ else }}
   <meta property="og:image" content="https://www.klimo.io/images/cover.png" />
   <meta name="twitter:image" content="https://www.klimo.io/images/cover.png">
