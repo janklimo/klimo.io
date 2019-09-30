@@ -8,7 +8,7 @@ draft = false
 
 Recently we've been making a more conscious effort to improve the quality of our seed data.
 
-Firstly, to make it easier to onboard new team members. Secondly, to make the app ready for 
+Firstly, to make it easier to onboard new team members. Secondly, to make the app ready for
 [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps). Certainly,
 it's a great thing to be able to just re-seed your database if your local experiments go awry 😅
 
@@ -23,7 +23,7 @@ Enter...
 
 ### Unsplash
 
-[Unsplash](https://unsplash.com/) is _the internet's source of freely useable images_. It comes 
+[Unsplash](https://unsplash.com/) is _the internet's source of freely useable images_. It comes
 with a simple API we can use to seed our images from. Here's how:
 
 [Sign up and create your app](https://unsplash.com/developers) to get your API credentials.
@@ -52,6 +52,14 @@ unsplash_images = Unsplash::Photo.search('architecture', 1, 25)
 ```
 
 This tells Unsplash to return page 1 of the results and use 25 records per page.
+
+We use [Shrine](https://github.com/shrinerb/shrine/) which makes it easy to use a remote URL
+as a source of attachment. To accomplish that, add the following to your attacher:
+
+```ruby
+plugin :infer_extension # Unsplash image URLs don't come with an extension
+plugin :remote_url, max_size: 20.megabytes # or your custom limit
+```
 
 Here's the final implementation used to seed data:
 

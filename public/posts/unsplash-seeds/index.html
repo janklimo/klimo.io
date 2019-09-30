@@ -41,8 +41,8 @@
 
   
   
-  <meta property="og:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=2">
-  <meta name="twitter:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=2">
+  <meta property="og:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=3">
+  <meta name="twitter:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=3">
 
 
 <meta name="twitter:card" content="summary_large_image">
@@ -101,7 +101,7 @@
     <p class="post-date post-line">
         <span><time datetime="2019-09-30" itemprop="datePublished">September 30, 2019</time></span>
         
-            <span> • 2 min read</span>
+            <span> • 3 min read</span>
         
     </p>
 </header>
@@ -155,6 +155,13 @@ end
 </code></pre>
 
 <p>This tells Unsplash to return page 1 of the results and use 25 records per page.</p>
+
+<p>We use <a href="https://github.com/shrinerb/shrine/" target="_blank">Shrine</a> which makes it easy to use a remote URL
+as a source of attachment. To accomplish that, add the following to your attacher:</p>
+
+<pre><code class="language-ruby">plugin :infer_extension # Unsplash image URLs don't come with an extension
+plugin :remote_url, max_size: 20.megabytes # or your custom limit
+</code></pre>
 
 <p>Here&rsquo;s the final implementation used to seed data:</p>
 
