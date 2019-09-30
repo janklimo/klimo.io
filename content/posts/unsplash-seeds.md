@@ -14,7 +14,12 @@ it's a great thing to be able to just re-seed your database if your local experi
 
 The kind of seeds I've seen over the years typically neglect images. They either use a minimal
 placeholder, use a few nicer images that are repeated over and over and checked into source
-control, or don't do anything at all. How can we do better? Enter...
+control, or don't do anything at all. How can we get this kind of awesomeness with almost
+no effort?
+
+![Seeded images](/posts/unsplash-seeds/seeds.png)
+
+Enter...
 
 ### Unsplash
 
