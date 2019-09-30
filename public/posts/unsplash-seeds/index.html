@@ -17,29 +17,39 @@
 <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="/images/apple-touch-icon-precomposed.png" />
 <link rel="apple-touch-startup-image" type="image/x-icon" href="/images/apple-touch-startup-image.png" />
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-        <title>Klimo.io &middot; A blog by Jan Klimo</title>
-        <meta name="description" content="Personal blog by Jan Klimo">
+        <title>Seeding Images From Unsplash &middot; A blog by Jan Klimo</title>
+        <meta name="description" content="Get beautiful images seed data with zero effort.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.55.6" />
         <meta name="robots" content="index,follow">
-        <meta property="og:title" content="Klimo.io">
-<meta property="og:description" content="Personal blog by Jan Klimo">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.klimo.io/">
+        <meta property="og:title" content="Seeding Images From Unsplash">
+<meta property="og:description" content="Get beautiful images seed data with zero effort.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.klimo.io/posts/unsplash-seeds/">
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1170" />
 
 
-  <meta property="og:image" content="https://www.klimo.io/images/cover.png" />
-  <meta name="twitter:image" content="https://www.klimo.io/images/cover.png">
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+  <meta property="og:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=2">
+  <meta name="twitter:image" content="https://og-image.janklimo.now.sh/Seeding%20Images%20From%20Unsplash?tags=Ruby,Ruby%20on%20Rails&date=September%2030,%202019&time=2">
 
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@janklimo">
 <meta name="twitter:creator" content="@janklimo">
-<meta name="twitter:title" content="Klimo.io">
-<meta name="twitter:description" content="Personal blog by Jan Klimo">
+<meta name="twitter:title" content="Seeding Images From Unsplash">
+<meta name="twitter:description" content="Get beautiful images seed data with zero effort.">
 
         <link rel="stylesheet" href=/styles.css>
         <link href="maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
@@ -47,8 +57,6 @@
         <link href="www.googletagmanager.com" rel="preconnect" crossorigin>
         <link href="//fonts.googleapis.com/css?family=PT+Sans:400,600,700,900" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
-          <link href="/index.xml" rel="alternate" type="application/rss+xml">
         
         
         
@@ -86,68 +94,138 @@
             <div id="container">
 
 
-<div id="post-index" class="container" itemscope="" itemtype="https://schema.org/Blog">
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Seeding Images From Unsplash</h1>
+    <p class="post-date post-line">
+        <span><time datetime="2019-09-30" itemprop="datePublished">September 30, 2019</time></span>
+        
+            <span> • 2 min read</span>
+        
+    </p>
+</header>
+
+
+        <div class="post-content clearfix">
     
-    <header class="post-header">
-        <img src="/images/profile_pic.jpg" alt="Jan Klimo" class="profile-image">
-        <p class="greeting">Hi 👋</p>
-        <p class="tagline" class="">
-            I'm <a href="https://twitter.com/janklimo" target="_blank">Jan</a>, software engineer based in Bangkok, Thailand.<br>
-            I build products and share the most interesting things I learn along the way.
+
+    
+
+<p>Recently we&rsquo;ve been making a more conscious effort to improve the quality of our seed data.</p>
+
+<p>Firstly, to make it easier to onboard new team members. Secondly, to make the app ready for
+<a href="https://devcenter.heroku.com/articles/github-integration-review-apps" target="_blank">Review Apps</a>. Certainly,
+it&rsquo;s a great thing to be able to just re-seed your database if your local experiments go awry 😅</p>
+
+<p>The kind of seeds I&rsquo;ve seen over the years typically neglect images. They either use a minimal
+placeholder, use a few nicer images that are repeated over and over and checked into source
+control, or don&rsquo;t do anything at all. How can we do better? Enter&hellip;</p>
+
+<h3 id="unsplash">Unsplash</h3>
+
+<p><a href="https://unsplash.com/" target="_blank">Unsplash</a> is <em>the internet&rsquo;s source of freely useable images</em>. It comes
+with a simple API we can use to seed our images from. Here&rsquo;s how:</p>
+
+<p><a href="https://unsplash.com/developers" target="_blank">Sign up and create your app</a> to get your API credentials.</p>
+
+<p>Install the gem:</p>
+
+<pre><code class="language-ruby"># API for seeding free, high-definition photos
+gem 'unsplash'
+</code></pre>
+
+<p>Initialize it (e.g. <code>config/initializers/unsplash.rb</code>):</p>
+
+<pre><code class="language-ruby">Unsplash.configure do |config|
+  config.application_access_key = ENV['UNSPLASH_ACCESS_KEY']
+  config.application_secret = ENV['UNSPLASH_SECRET_KEY']
+  config.utm_source = 'your_app_name'
+end
+</code></pre>
+
+<p>With that set up, you can fetch a collection of images with a single command:</p>
+
+<pre><code class="language-ruby">unsplash_images = Unsplash::Photo.search('architecture', 1, 25)
+</code></pre>
+
+<p>This tells Unsplash to return page 1 of the results and use 25 records per page.</p>
+
+<p>Here&rsquo;s the final implementation used to seed data:</p>
+
+<pre><code class="language-ruby">module Seeds
+  module Images
+    def self.seed(property:)
+      p 'Seeding property images...'
+
+      # Add more than 20 items to test pagination.
+      unsplash_images = Unsplash::Photo.search('architecture', 1, 25)
+
+      unsplash_images.each do |unsplash_image|
+        image = Properties::Image.create!(
+          property: property,
+          category: Properties::Image.categories.keys.sample,
+          taken_on: rand(5..200).days.ago,
+          title: unsplash_image.description,
+          file_remote_url: unsplash_image.urls.regular
+        )
+        Properties::Images::Publisher.(image)
+      end
+
+      p 'Done seeding images! 🎉'
+    rescue Unsplash::UnauthorizedError
+      p 'Unsplash API keys not found, no images will be seeded.'
+    end
+  end
+end
+</code></pre>
+
+<p>Rescuing from <code>Unsplash::UnauthorizedError</code> gives us the flexibility to make this an opt-in
+feature available if you set up your Unsplash ENV variables.</p>
+
+<p>Careful observer will notice that this is not your typical structure of <code>seeds.rb</code>. In an
+effort to make our seeds more maintainable, we&rsquo;ve broken it down into modules.</p>
+
+<p>Every module has a single responsibility that is responsible for seeding just one type of records.
+We keep these under <code>db/seeds/*.rb</code>.</p>
+
+<p>This allows for a wonderfully clean <code>seeds.rb</code> file 🎉</p>
+
+<pre><code class="language-ruby">Dir[Rails.root.join('db', 'seeds', '*.rb')].each { |f| require f }
+
+ApplicationRecord.transaction do
+  property = Property.create(name: 'Empire State Building')
+  Seeds::Images.seed(property: property)
+  # Seeds::Tenants.seed(property: property)
+  # Seeds::Files.seed(property: property)
+  # etc.
+end
+</code></pre>
+
+<p>Eager to learn about your experience with making seeds more useful!</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/ruby/">Ruby</a>, 
+            
+                <a href="/tags/ruby-on-rails/">Ruby on Rails</a>
+            
         </p>
-        <svg class="code-brackets" enable-background="new 0 0 500 500" height="100px" id="Layer_1" version="1.1" viewBox="0 0 500 500" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><polygon fill="#231F20" points="195.568,185.811 142.681,250.173 195.568,314.534 208.077,293.962 172.44,250.173      208.077,206.384    "/><polygon fill="#231F20" points="228.707,313 251.922,313 288.816,187 265.6,187    "/><polygon fill="#231F20" points="303.876,185.81 291.37,206.384 327.005,250.173 291.37,293.961 303.876,314.535 356.765,250.173         "/></g></g></svg>
-    </header>
+    
 
-
-
-    <ol class="post-list">
+    <div class="share">
         
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="/posts/unsplash-seeds/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Seeding Images From Unsplash</h4>
-        <time class="post-stub-date" datetime="2019-09-30">September 30, 2019
-            <span> • 2 min read</span>
-        </time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="/posts/what-is-your-apps-mrr/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">What Is Your App&#39;s MRR?</h4>
-        <time class="post-stub-date" datetime="2019-09-17">September 17, 2019
-            <span> • 2 min read</span>
-        </time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="/posts/automating-aws-workflows/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Automating AWS Workflows</h4>
-        <time class="post-stub-date" datetime="2019-08-10">August 10, 2019
-            <span> • 6 min read</span>
-        </time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="/posts/optimizing-performance-ruby-inline/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Speeding Things Up With Ruby Inline</h4>
-        <time class="post-stub-date" datetime="2019-02-21">February 21, 2019
-            <span> • 2 min read</span>
-        </time>
-        
-    </a>
-</li>
-        
-    </ol>
-
-    <div class="post-navigation">
-        
-
+        <a class="icon-twitter" href="https://twitter.com/share?text=Seeding%20Images%20From%20Unsplash by @janklimo&hashtags=Ruby%2c%20Ruby%20on%20Rails&url=https%3a%2f%2fwww.klimo.io%2fposts%2funsplash-seeds%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
     </div>
 
     
@@ -164,6 +242,8 @@
     </form>
 </div>
 
+</footer>
+    </article>
 </div>
 
             </div>

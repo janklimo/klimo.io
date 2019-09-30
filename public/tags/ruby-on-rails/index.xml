@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jan Klimo</copyright>
-    <lastBuildDate>Tue, 17 Sep 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2019 00:00:00 +0700</lastBuildDate>
     
 	<atom:link href="/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Seeding Images From Unsplash</title>
+      <link>/posts/unsplash-seeds/</link>
+      <pubDate>Mon, 30 Sep 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/posts/unsplash-seeds/</guid>
+      <description>Recently we&amp;rsquo;ve been making a more conscious effort to improve the quality of our seed data.
+Firstly, to make it easier to onboard new team members. Secondly, to make the app ready for Review Apps. Certainly, it&amp;rsquo;s a great thing to be able to just re-seed your database if your local experiments go awry 😅
+The kind of seeds I&amp;rsquo;ve seen over the years typically neglect images. They either use a minimal placeholder, use a few nicer images that are repeated over and over and checked into source control, or don&amp;rsquo;t do anything at all.</description>
+    </item>
     
     <item>
       <title>What Is Your App&#39;s MRR?</title>
