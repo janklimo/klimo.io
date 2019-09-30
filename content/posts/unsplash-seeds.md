@@ -97,7 +97,7 @@ feature available if you set up your Unsplash ENV variables.
 Careful observer will notice that this is not your typical structure of `seeds.rb`. In an
 effort to make our seeds more maintainable, we've broken it down into modules.
 
-Every module has a single responsibility that is responsible for seeding just one type of records.
+Every module has a single responsibility for seeding just one type of records.
 We keep these under `db/seeds/*.rb`.
 
 This allows for a wonderfully clean `seeds.rb` file 🎉
