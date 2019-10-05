@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+{{ partial "shopify/intro.html" . }}
+
+<div class="container">
+  <article class="post-container">
+    {{ range .Pages }}
+      <li>
+        <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+      </li>
+    {{ end }}
+  </article>
+</div>
+
+{{ partial "footer.html" . }}

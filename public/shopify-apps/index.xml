@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shopify Apps Brand new! on Klimo.io</title>
+    <link>/shopify-apps/</link>
+    <description>Recent content in Shopify Apps Brand new! on Klimo.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Jan Klimo</copyright>
+    <lastBuildDate>Sat, 09 Feb 2019 13:24:48 +0700</lastBuildDate>
+    
+	<atom:link href="/shopify-apps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Robin PRO Image Gallery</title>
+      <link>/shopify-apps/robin-pro-image-gallery/</link>
+      <pubDate>Sat, 05 Oct 2019 13:24:48 +0700</pubDate>
+      
+      <guid>/shopify-apps/robin-pro-image-gallery/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

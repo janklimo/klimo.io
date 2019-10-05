@@ -50,6 +50,6 @@ disqusShortname = "XXX"
     weight = 1
 
 [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
+    name = "Shopify Apps"
+    url = "/shopify-apps/"
     weight = 2

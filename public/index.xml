@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jan Klimo</copyright>
-    <lastBuildDate>Mon, 30 Sep 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Oct 2019 13:24:48 +0700</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Robin PRO Image Gallery</title>
+      <link>/shopify-apps/robin-pro-image-gallery/</link>
+      <pubDate>Sat, 05 Oct 2019 13:24:48 +0700</pubDate>
+      
+      <guid>/shopify-apps/robin-pro-image-gallery/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Seeding Images From Unsplash</title>
