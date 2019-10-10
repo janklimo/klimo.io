@@ -1,0 +1,25 @@
+$radius: 6px;
+
+.app-card {
+  background: white;
+  border: 1px solid #e2e2e2;
+  border-radius: $radius;
+  box-shadow: 0 0 0.3em 1px #c4cdd5;
+
+  img {
+    margin: 0 0 15px 0;
+    border-radius: $radius $radius 0 0;
+  }
+
+  .details {
+    padding: 10px 20px;
+  }
+
+  .title {
+    color: #f75175;
+  }
+
+  .description {
+    color: #969696;
+  }
+}
