@@ -1,0 +1,9 @@
+<div class="app__content clearfix" itemprop="articleBody">
+  <h1 class="app__title">{{ .Title }}</h1>
+
+  {{ with .Params.Image }}
+    <img class="post-featured-image" src="{{ . }}">
+  {{ end }}
+
+  {{ .Content }}
+</div>

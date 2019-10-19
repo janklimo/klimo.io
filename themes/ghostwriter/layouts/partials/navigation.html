@@ -1,5 +1,11 @@
+{{ $current := . }}
 {{ range .Site.Menus.main.ByWeight }}
-    <li class="site-nav-item">
-        <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
-    </li>
+  {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+  {{ $active = or $active (eq .Name $current.Title) }}
+  {{ $active = or $active (and (eq .Name "Blog") (eq $current.Section "posts")) }}
+  {{ $active = or $active (and (eq .Name "Shopify Apps") (eq $current.Section "shopify-apps")) }}
+  <li class="site-nav-item">
+    <a title="{{ .Name }}" href="{{ .URL }}"
+      class="{{ if $active }}active{{ end }}">{{ .Name }}</a>
+  </li>
 {{ end }}

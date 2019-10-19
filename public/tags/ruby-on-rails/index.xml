@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jan Klimo</copyright>
-    <lastBuildDate>Mon, 30 Sep 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Robin PRO Image Gallery</title>
+      <link>/shopify-apps/robin-pro-image-gallery/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/shopify-apps/robin-pro-image-gallery/</guid>
+      <description>Robin PRO is the definitive image gallery app built for 2019. Fast, mobile-first, beautiful. A must-have for any shop owner who cares about details and pixel-perfect user experience. Create a great first impression that converts into sales!   Ready to take your store to the next level? Install Robin PRO  Why You&amp;rsquo;ll Love Robin PRO Image Gallery Image gallery app built for 2019 Fast, mobile-first, beautiful. Create a great first impression that converts into sales!</description>
+    </item>
     
     <item>
       <title>Seeding Images From Unsplash</title>

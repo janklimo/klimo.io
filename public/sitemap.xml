@@ -3,6 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/circleci/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -11,6 +23,24 @@
   <url>
     <loc>/shopify-apps/robin-pro-image-gallery/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ruby-on-rails/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/shell/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -26,20 +56,8 @@
   </url>
   
   <url>
-    <loc>/tags/ruby-on-rails/</loc>
-    <lastmod>2019-09-30T00:00:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/posts/unsplash-seeds/</loc>
     <lastmod>2019-09-30T00:00:00+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-09-30T00:00:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -54,26 +72,8 @@
   </url>
   
   <url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/posts/automating-aws-workflows/</loc>
     <lastmod>2019-08-10T00:00:00+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/circleci/</loc>
-    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/shell/</loc>
-    <lastmod>2019-08-10T00:00:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html{{ if .Site.Params.opengraph }} prefix="og: http://ogp.me/ns#"{{ end }}>
+  {{ partial "head.html" . }}
+  <body>
+    <div class="app__wrapper">
+      <header class="site-header">
+        <div class="container">
+          <div class="site-title-wrapper">
+            <h1 class="site-title">
+              <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            </h1>
+          </div>
+          <ul class="site-nav">
+            {{ partial "navigation.html" . }}
+          </ul>
+        </div>
+      </header>
