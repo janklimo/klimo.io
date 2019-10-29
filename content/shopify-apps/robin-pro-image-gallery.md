@@ -90,6 +90,11 @@ Robin illustration has been kindly provided by the amazing <a href="http://steph
 
 ## Changelog
 
+#### Oct 29, 2019
+
+App CSS style definitions are now strictly scoped. This is to prevent conflicts in rare
+cases when parent Shopify theme also uses Photoswipe to render its images.
+
 #### Oct 8, 2019
 
 Optimized the way the list of your galleries is loaded so that they're only
