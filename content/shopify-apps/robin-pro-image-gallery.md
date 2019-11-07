@@ -20,7 +20,7 @@ date: 2019-10-05
 </p>
 
 <div class="text-center app__cta--wrapper">
-  <a title="Robin PRO Image Gallery" href="https://apps.shopify.com/robin-pro-image-gallery" target="_blank" class="app__cta">Install Robin PRO</a>
+  <a title="Robin PRO Image Gallery" href="https://apps.shopify.com/robin-pro-image-gallery" target="_blank" rel="noopener" class="app__cta">Install Robin PRO</a>
 </div>
 
 ## Why You'll Love Robin PRO Image Gallery
@@ -84,7 +84,7 @@ Crafted using the latest technologies used by Facebook and others. We're constan
 
 Robins are fast, nimble creatures, delighting people with their beauty. I've developed Robin PRO from the ground up around these principles.
 
-Robin illustration has been kindly provided by the amazing <a href="http://stephaniefizercoleman.com/" target="_blank">Stephanie Fizer Coleman</a>.
+Robin illustration has been kindly provided by the amazing <a href="http://stephaniefizercoleman.com/" target="_blank" rel="noopener">Stephanie Fizer Coleman</a>.
 
 {{< code-brackets >}}
 
