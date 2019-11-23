@@ -90,6 +90,33 @@ Robin illustration has been kindly provided by the amazing <a href="http://steph
 
 ## Changelog
 
+#### Nov 23, 2019
+
+When opening a gallery on a mobile device, users are presented with a quick
+reminder letting them know they can navigate between gallery images
+by swiping left and right.
+
+{{< vimeo 375108954 >}}
+
+#### Nov 5, 2019
+
+Compact view galleries now show a _Reset_ button to quickly minimize the expanded
+gallery back to the initial two rows of images.
+
+<a class="app__thumbnail--link" alt="gallery reset button"
+   href="/shopify-apps/robin-pro/reset.png">
+  <img src="/shopify-apps/robin-pro/reset.png" class="app__thumbnail">
+</a>
+
+#### Nov 4, 2019
+
+Thanks to smart caching, galleries are now returned and rendered up to 2x faster!
+
+<a class="app__thumbnail--link" alt="faster gallery response with caching"
+   href="/shopify-apps/robin-pro/caching.png">
+  <img src="/shopify-apps/robin-pro/caching.png" class="app__thumbnail">
+</a>
+
 #### Oct 29, 2019
 
 App CSS style definitions are now strictly scoped. This is to prevent conflicts in rare
