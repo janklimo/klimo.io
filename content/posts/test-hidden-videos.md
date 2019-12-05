@@ -9,7 +9,7 @@ draft = false
 Hi
 
 <div class="wrapper" style="max-width: 1100px; margin: 0 auto;">
-  <video autoplay loop muted playsinline style="width: 100%;">
+  <video autoplay loop muted playsinline style="width: 100%; display: none;">
     <source src="/posts/test-hidden-videos/output.webm" type="video/webm">
     <source src="/posts/test-hidden-videos/output.mp4" type="video/mp4">
   </video>
