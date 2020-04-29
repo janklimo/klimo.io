@@ -154,12 +154,12 @@ Responsive images for retina screens. The app now uses `srcset` to render
 high-resolution images on devices that support them.
 
 <a class="app__thumbnail--link" alt="responsive images retina before"
-   href="https://robin-pro-preview.imgix.net/portfolio/before_gallery.png">
-<img src="https://robin-pro-preview.imgix.net/portfolio/before_gallery.png?w=250&h=250&crop=faces&fit=crop" class="app__thumbnail">
+  href="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/before_gallery.png">
+  <img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/before_gallery.png?w=250&h=250" class="app__thumbnail">
 </a>
 <a class="app__thumbnail--link" alt="responsive images retina after"
-   href="https://robin-pro-preview.imgix.net/portfolio/after_gallery.png">
-<img src="https://robin-pro-preview.imgix.net/portfolio/after_gallery.png?w=250&h=250&crop=faces&fit=crop" class="app__thumbnail">
+  href="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/after_gallery.png">
+  <img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/after_gallery.png?w=250&h=250" class="app__thumbnail">
 </a>
 
 This is critical for delivering a great user experience on mobile devices. The
