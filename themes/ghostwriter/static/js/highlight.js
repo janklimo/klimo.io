@@ -14,4 +14,11 @@ hljs.registerLanguage("ruby", ruby);
 hljs.registerLanguage("typescript", typescript);
 hljs.registerLanguage("yaml", yaml);
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelectorAll("pre code").forEach((block) => {
+    console.log("highlighting...", block);
+    hljs.highlightBlock(block);
+  });
+});
+
 export default hljs;
