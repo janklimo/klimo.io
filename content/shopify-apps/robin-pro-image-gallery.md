@@ -1,13 +1,13 @@
 ---
 title: "Robin PRO Image Gallery"
-description: "Image gallery app built for 2019. Fast, mobile-first, beautiful. Create a great first impression that converts into sales!"
+description: "Image gallery app built for 2021. Fast, mobile-first, beautiful. Create a great first impression that converts into sales!"
 image: "/shopify-apps/robin-pro/staff_picks_banner.jpg"
 tags: ["AWS", "CircleCI", "Shell", "Ruby on Rails"]
 date: 2019-10-05
 ---
 
 <p class="app__content--pitch">
-  Robin PRO is the definitive image gallery app built for 2019. Fast,
+  Robin PRO is the definitive image gallery app built for 2021. Fast,
   mobile-first, beautiful. A must-have for any shop owner who cares about
   details and pixel-perfect user experience. Create a great first impression
   that converts into sales!
@@ -25,7 +25,7 @@ date: 2019-10-05
 
 ## Why You'll Love Robin PRO Image Gallery
 
-Image gallery app built for 2019
+Image gallery app built for 2021
 Fast, mobile-first, beautiful. Create a great first impression that converts into sales!
 
 ### Faster store, more sales
@@ -89,6 +89,36 @@ Robin illustration has been kindly provided by the amazing <a href="http://steph
 {{< code-brackets >}}
 
 ## Changelog
+
+#### Dec 29, 2020
+
+Adding galleries to your homepage (or any other part of your store that works with sections)
+has never been easier. No need to touch code at all.
+
+Add the section, select a gallery, save your theme, done!
+
+<a class="app__thumbnail--link" alt="multipart image gallery uploads"
+   href="/shopify-apps/robin-pro/sections.gif">
+<img src="/shopify-apps/robin-pro/sections.gif" class="app__thumbnail">
+</a>
+
+#### Aug 22, 2020
+
+Now you have full control over all the labels so you can customize or translate them according to your needs.
+
+<a class="app__thumbnail--link" alt="multipart image gallery uploads"
+   href="/shopify-apps/robin-pro/labels.gif">
+<img src="/shopify-apps/robin-pro/labels.gif" class="app__thumbnail">
+</a>
+
+#### Jun 18, 2020
+
+You can now easily sort galleries. A little quality-of-life improvement for merchants with lots of galleries.
+
+<a class="app__thumbnail--link" alt="multipart image gallery uploads"
+   href="/shopify-apps/robin-pro/galleries_sort.gif">
+<img src="/shopify-apps/robin-pro/galleries_sort.gif" class="app__thumbnail">
+</a>
 
 #### Nov 23, 2019
 
