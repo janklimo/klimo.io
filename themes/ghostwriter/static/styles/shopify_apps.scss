@@ -50,14 +50,16 @@ $radius: 6px;
     border-radius: $radius;
     box-shadow: 0 0 0.3em 1px #c4cdd5;
     width: 75%;
-    margin:  auto;
+    margin: auto;
   }
 
   iframe {
     max-width: 100%;
   }
 
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     color: $secondary;
   }
 }

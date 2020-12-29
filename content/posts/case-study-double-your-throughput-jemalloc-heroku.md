@@ -2,7 +2,7 @@
 title = "Case Study: Double Your App's Throughput for Free With Jemalloc"
 description = "There's a good chance you'll be able to increase the number of your web server workers just by using jemalloc."
 date = 2020-12-29
-tags = ["Ruby on Rails", "Ruby", "Heroku"]
+tags = ["Heroku", "Ruby", "Ruby on Rails"]
 +++
 
 Many great things have been said about using `jemalloc`, especially in the context
