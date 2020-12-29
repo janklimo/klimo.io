@@ -105,7 +105,7 @@ gallery back to the initial two rows of images.
 
 <a class="app__thumbnail--link" alt="gallery reset button"
    href="/shopify-apps/robin-pro/reset.png">
-  <img src="/shopify-apps/robin-pro/reset.png" class="app__thumbnail">
+<img src="/shopify-apps/robin-pro/reset.png" class="app__thumbnail">
 </a>
 
 #### Nov 4, 2019
@@ -114,7 +114,7 @@ Thanks to smart caching, galleries are now returned and rendered up to 2x faster
 
 <a class="app__thumbnail--link" alt="faster gallery response with caching"
    href="/shopify-apps/robin-pro/caching.png">
-  <img src="/shopify-apps/robin-pro/caching.png" class="app__thumbnail">
+<img src="/shopify-apps/robin-pro/caching.png" class="app__thumbnail">
 </a>
 
 #### Oct 29, 2019
@@ -155,11 +155,11 @@ high-resolution images on devices that support them.
 
 <a class="app__thumbnail--link" alt="responsive images retina before"
   href="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/before_gallery.png">
-  <img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/before_gallery.png?w=250&h=250" class="app__thumbnail">
+<img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/before_gallery.png?w=250&h=250" class="app__thumbnail">
 </a>
 <a class="app__thumbnail--link" alt="responsive images retina after"
   href="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/after_gallery.png">
-  <img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/after_gallery.png?w=250&h=250" class="app__thumbnail">
+<img src="https://aebscdbgsm.cloudimg.io/v7/_klimoio_/robin-pro/after_gallery.png?w=250&h=250" class="app__thumbnail">
 </a>
 
 This is critical for delivering a great user experience on mobile devices. The

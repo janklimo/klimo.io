@@ -53,3 +53,6 @@ disqusShortname = "XXX"
     name = "Shopify Apps"
     url = "/shopify-apps/"
     weight = 2
+
+[markup.goldmark.renderer]
+    unsafe = true
