@@ -1,4 +1,4 @@
-import hljs from "highlight.js/lib/highlight";
+import hljs from "highlight.js/lib/core";
 
 // Required by lightbox
 import $ from "jquery";
@@ -29,5 +29,5 @@ hljs.registerLanguage("yaml", yaml);
 hljs.initHighlightingOnLoad();
 
 $(".app__thumbnail--link").magnificPopup({
-  type: "image"
+  type: "image",
 });
