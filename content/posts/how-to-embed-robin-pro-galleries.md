@@ -5,7 +5,8 @@ date = 2021-01-14
 tags = ['Robin PRO']
 +++
 
-You've created your gallery and uploaded some images. Great!
+You've created your first [Robin PRO](https://apps.shopify.com/robin-pro-image-gallery)
+gallery and uploaded some images. Great!
 
 This article will show you how to display it anywhere on your site. There are
 two ways to do this and both of them are really simple.
@@ -40,8 +41,9 @@ that support HTML. This allows you to display your galleries in any of them.
 
 ### Option B: Sections
 
-If your Shopify theme supports sections, Robin PRO will create its own section
-where you can select which gallery you want to insert into your page.
+If your Shopify theme supports sections,
+[Robin PRO](https://apps.shopify.com/robin-pro-image-gallery) will create its own
+section where you can select which gallery you want to insert into your page.
 
 <a class="app__thumbnail--link" alt="Adding Robin PRO gallery section"
    href="/posts/how-to-embed-robin-pro-galleries/section.gif">
