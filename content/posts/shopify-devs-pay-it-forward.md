@@ -1,5 +1,5 @@
 +++
-title = "#ShopifyDevsPayItForward"
+title = "Shopify Devs Pay It Forward"
 description = "Help a good cause with the extra revenue from 0% revenue share"
 date = 2021-09-03
 tags = ["Shopify"]
