@@ -1,6 +1,6 @@
 +++
 title = "Shopify Devs Pay It Forward"
-description = "Help a good cause with the extra revenue from 0% revenue share"
+description = "Use the extra money you made from 0% revenue share to help a good cause of your choice. #ShopifyDevsPayItForward"
 date = 2021-09-03
 tags = ["Shopify"]
 draft = false
