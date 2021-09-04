@@ -19,13 +19,13 @@ In case you haven't applied yet, go for it. Takes a few seconds and you'll likel
 If August was kind to you and your app business, my ask and the message of this post is simple:
 
 > Use the extra money you made from 0% revenue share to help a good cause of your choice.
-> [Share your story](https://klimo.io) to inspire others!
+> [Share your story](https://twitter.com/hashtag/ShopifyDevsPayItForward?src=hashtag_click) to inspire others!
 
 Thank you, Shopify, for making this possible.
 
 Opportunities to help are endless. Especially now. Let's do this, Shopify Devs 👫
 
-#ShopifyDevsPayItForward
+[#ShopifyDevsPayItForward](https://twitter.com/hashtag/ShopifyDevsPayItForward?src=hashtag_click)
 
 ### How we're helping
 
@@ -37,4 +37,5 @@ Such a simple and inexpensive way to brighten someone's day.
 [Thanks, Reddit!](https://www.reddit.com/r/MadeMeSmile/comments/ph3pdn/giving_large_tips_to_drivethru_workers/) 💖
 
 > Have you made a donation or found other creative ways to help?
-> [Share your story on Twitter](https://klimo.io) so I can give you a shout out in this section!
+> [Share your story on Twitter](https://twitter.com/hashtag/ShopifyDevsPayItForward?src=hashtag_click)
+> so I can give you a shout out in this section!
