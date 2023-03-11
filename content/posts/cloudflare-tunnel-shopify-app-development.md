@@ -1,7 +1,7 @@
 +++
 title = "Cloudflare Tunnel for Shopify App Development"
 description = "Cloudflare Tunnel is a free, smoother, more reliable alternative to ngrok"
-date = 2023-03-03
+date = 2023-03-11
 tags = ["Cloudflare", "Ruby on Rails"]
 draft = false
 +++
