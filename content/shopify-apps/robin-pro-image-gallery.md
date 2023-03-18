@@ -1,13 +1,13 @@
 ---
 title: "Robin PRO Image Gallery"
-description: "Image gallery app built for 2021. Fast, mobile-first, beautiful. Create a great first impression that converts into sales!"
+description: "Image gallery app built for 2023. Fast, mobile-first, beautiful. Create a great first impression that converts into sales!"
 image: "/shopify-apps/robin-pro/staff_picks_banner.jpg"
 tags: ["AWS", "CircleCI", "Shell", "Ruby on Rails"]
 date: 2019-10-05
 ---
 
 <p class="app__content--pitch">
-  Robin PRO is the definitive image gallery app built for 2021. Fast,
+  Robin PRO is the definitive image gallery app built for 2023. Fast,
   mobile-first, beautiful. A must-have for any shop owner who cares about
   details and pixel-perfect user experience. Create a great first impression
   that converts into sales!
@@ -25,7 +25,7 @@ date: 2019-10-05
 
 ## Why You'll Love Robin PRO Image Gallery
 
-Image gallery app built for 2021
+Image gallery app built for 2023
 Fast, mobile-first, beautiful. Create a great first impression that converts into sales!
 
 ### Faster store, more sales
