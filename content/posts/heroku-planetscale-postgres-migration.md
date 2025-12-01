@@ -153,8 +153,11 @@ and it was super easy to spot (the red warning icon means no index being used):
 
 ## Things that aren't there yet
 
-While [branches](https://planetscale.com/docs/vitess/schema-changes/branching) are PlanetScale's killer feature, the support for Postgres
-is new and the tooling hasn't caught up yet. I wanted to use the [`planetscale-rails`](https://planetscale.com/docs/vitess/schema-changes/branching) gem in my app but ran into some _"endpoint is only available for Vitess databases"_ roadblocks.
+While [branches](https://planetscale.com/docs/vitess/schema-changes/branching) are PlanetScale's killer feature,
+the support for Postgres is new and the tooling hasn't caught up yet.
+
+I wanted to use the [`planetscale-rails`](https://github.com/planetscale/planetscale_rails) gem in my app but ran
+into some _"endpoint is only available for Vitess databases"_ roadblocks.
 
 ## Wrapping up
 
