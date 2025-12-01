@@ -6,67 +6,67 @@ copyright = "Jan Klimo"
 disqusShortname = "XXX"
 
 [blackfriday]
-    hrefTargetBlank = true
+hrefTargetBlank = true
 
 [Privacy]
 
 [Privacy.disqus]
-    disable = true
+disable = true
 
 [Privacy.googleAnalytics]
-    anonymizeIP = true
-    respectDoNotTrack = true
-    useSessionStorage = false
-
-[Author]
-    name = "A blog by Jan Klimo"
-    profile = "https://klimo.io"
+anonymizeIP = true
+respectDoNotTrack = true
+useSessionStorage = false
 
 [Taxonomies]
-    tag = "tags"
+tag = "tags"
 
 [Params]
-    intro = true
-    headline = "My headline"
-    description = "Personal blog by Jan Klimo"
-    github = "https://github.com/janklimo"
-    linkedin = "https://www.linkedin.com/in/janklimo/"
-    twitter = "https://twitter.com/janklimo"
-    stackoverflow = "https://stackoverflow.com/users/3678689/jan-klimo"
-    opengraph = true
-    shareTwitter = true
-    dateFormat = "January 2, 2006"
-    highlightJsUrl = ""
-    highlightJsLocalUrl = ""
-    readingTime = true
-    domain = "https://www.klimo.io"
+intro = true
+headline = "My headline"
+description = "Personal blog by Jan Klimo"
+github = "https://github.com/janklimo"
+linkedin = "https://www.linkedin.com/in/janklimo/"
+twitter = "https://twitter.com/janklimo"
+stackoverflow = "https://stackoverflow.com/users/3678689/jan-klimo"
+opengraph = true
+shareTwitter = true
+dateFormat = "January 2, 2006"
+highlightJsUrl = ""
+highlightJsLocalUrl = ""
+readingTime = true
+domain = "https://www.klimo.io"
+
+[Params.Author]
+name = "A blog by Jan Klimo"
+profile = "https://klimo.io"
 
 [Permalinks]
-    post = "/:year/:month/:day/:filename/"
+post = "/:year/:month/:day/:filename/"
 
 [[menu.main]]
-    name = "Blog"
-    url = "/"
-    weight = 1
+name = "Blog"
+url = "/"
+weight = 1
 
 [[menu.main]]
-    name = "Shopify Apps"
-    url = "/shopify-apps/"
-    weight = 2
+name = "Shopify Apps"
+url = "/shopify-apps/"
+weight = 2
 
 [markup.goldmark.renderer]
-    unsafe = true
+unsafe = true
 
 [markup]
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = true
-    hl_Lines = ""
-    lineAnchors = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "dracula"
-    tabWidth = 2
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = true
+hl_Lines = ""
+lineAnchors = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+style = "dracula"
+tabWidth = 2
