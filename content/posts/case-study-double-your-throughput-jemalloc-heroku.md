@@ -8,7 +8,7 @@ tags = ["Heroku", "Ruby", "Ruby on Rails"]
 Many great things have been said about using `jemalloc`, especially in the context
 of memory-constrained environments, such as Heroku.
 
-{{< tweet 936627901071466496 >}}
+{{< x user="nateberkopec" id="936627901071466496" >}}
 
 What `jemalloc` is or how it works is outside the scope of this post (visit the
 project's [homepage](http://jemalloc.net/) or read the

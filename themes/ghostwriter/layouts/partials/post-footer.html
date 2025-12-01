@@ -11,7 +11,7 @@
     {{ end}}
 
     <div class="share">
-        {{ $tags := replace (delimit .Params.tags ",") " " "" }}
+        {{ $tags := "" }}{{ with .Params.tags }}{{ $tags = replace (delimit . ",") " " "" }}{{ end }}
         <a class="icon-twitter" href="https://twitter.com/share?text={{ .Title }} by @janklimo&hashtags={{ $tags }}&url={{ .Site.Params.domain}}{{ .Permalink }}"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <i class="fa fa-twitter"></i>
